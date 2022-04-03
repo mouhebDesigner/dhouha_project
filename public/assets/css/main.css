@@ -1,0 +1,8 @@
+ * {
+    font-family: "Cairo", sans-Serif !important;
+}
+.nav-link span{
+    color: #1e5396;
+    font-weight: bold;
+    font-size: 1rem;
+}
