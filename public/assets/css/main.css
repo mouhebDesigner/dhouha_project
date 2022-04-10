@@ -1,8 +1,39 @@
- * {
+ h1,h2,h3,h4,h5,h6,p, span, a, div{
     font-family: "Cairo", sans-Serif !important;
 }
 .nav-link span{
     color: #1e5396;
     font-weight: bold;
     font-size: 1rem;
+}
+
+.info-box-icon__customized {
+    width: 180px;
+    height: 130px;
+    overflow: hidden;
+}
+.info-box-icon__customized img{
+    width: 200px;
+    height: 140px;
+}
+
+.card-head{
+    background-color: var(--theme-color);
+    color: white;
+}
+
+.btn-primary__customized{
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2a500 !important;
+    border: 1px solid #e2a500 !important;
+}
+
+.tblEditBtn{
+    height: 30px;
+    display: inline-block;
 }

@@ -3,7 +3,9 @@
  *  Author     : RedStar Theme
  *  Description: A common stylesheet for right to left layout
  */
-
+:root{
+  --theme-color: #428dc5;
+}
 p {
   text-align: right;
 }
@@ -213,6 +215,7 @@ p {
 .info-box-content {
   margin-left: 0px;
   text-align: right;
+  color: var(--theme-color)
 }
 .info-box-icon {
   float: right;

@@ -5976,7 +5976,7 @@ ul.chat.nice-chat {
 .card-head {
   border-radius: 2px 2px 0 0;
   border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-  padding: 2px;
+  padding: 8px;
   /* text-transform: uppercase; */
   color: #3a405b;
   font-size: 14px;

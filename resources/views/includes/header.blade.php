@@ -25,16 +25,27 @@
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true"
                         aria-expanded="false">
                         <img alt="" class="img-circle " src="../assets/img/dp.jpg">
-                        <span class="username username-hide-on-mobile"> Sneha
+                        <span class="username username-hide-on-mobile"> {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
                         </span></a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="user_profile.html">
-                                <i class="icon-user"></i> Profile </a>
+                                <i class="icon-user"></i> صفحتي الشخصية </a>
                         </li>
                         <li>
                             <a href="login.html">
-                                <i class="icon-logout"></i> Log Out </a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <i class="icon-logout"></i>
+
+                                    {{ __('تسجيل الخروج ') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                         </li>
                     </ul>
                 </li>

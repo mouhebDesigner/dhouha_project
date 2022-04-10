@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item start active">
+                    <li class="nav-item start @if(Request::is('home')) active @endif">
                         <a href="{{ url('home') }}" class="nav-link ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -34,7 +34,36 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item @if(Request::is('niveaux')) active @endif">
+                        <a href="#" class="nav-link nav-toggle"> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span class="title">المراحل التعليمية</span> <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li class="nav-item">
+                                <a href="{{ route('niveaux.index') }}" class="nav-link ">
+                                    <span class="title">
+                                        قائمة المراحل التعليمية
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('niveaux.create') }}" class="nav-link ">
+                                    <span class="title">
+                                        إضافة مرحلة
+                                    </span>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item @if(Request::is('students')) active @endif">
                         <a href="#" class="nav-link nav-toggle"> <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
@@ -45,16 +74,16 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="all_professors.html" class="nav-link "> 
+                                <a href="{{ route('students.index') }}" class="nav-link ">
                                     <span class="title">
-                                        قائمة التلاميذ                                      
+                                        قائمة التلاميذ
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="add_professor.html" class="nav-link "> 
+                                <a href="{{ route('students.create') }}" class="nav-link ">
                                     <span class="title">
-                                        إضافة تلميذ                                         
+                                        إضافة تلميذ
                                     </span>
                                 </a>
                             </li>
@@ -75,16 +104,16 @@
                             <span class="title">أولياء الأمر</span><span class="arrow"></span></a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="all_students.html" class="nav-link ">
+                                <a href="{{ route('parents.index') }}" class="nav-link ">
                                     <span class="title">
-                                        قائمة الأولياء                                          
+                                        قائمة الأولياء
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="add_student.html" class="nav-link "> 
+                                <a href="{{ route('parents.create') }}" class="nav-link ">
                                     <span class="title">
-                                        إضافة ولي أمر                                       
+                                        إضافة ولي أمر
                                     </span>
                                 </a>
                             </li>
@@ -101,16 +130,16 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="all_courses.html" class="nav-link ">
+                                <a href="{{ route('subjects.index') }}" class="nav-link ">
                                     <span class="title">
-                                                         قائمة المواد                                       
+                                        قائمة المواد
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="add_course.html" class="nav-link "> 
+                                <a href="{{ route('subjects.create') }}" class="nav-link ">
                                     <span class="title">
-                إضافة مادة                                          
+                                        إضافة مادة
                                     </span>
                                 </a>
                             </li>

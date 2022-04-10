@@ -22,10 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'etudiant', 'parent']);
             $table->enum('genre', ['male', 'female']);
-            $table->biginteger('numtel');
+            $table->biginteger('numtel')->nullable();
             $table->date('date_naissance');
             $table->text('photo')->nullable();
             $table->boolean('approuver')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('niveau_id')->nullable()->constrained('niveaux')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

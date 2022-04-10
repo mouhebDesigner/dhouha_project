@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Niveau extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        "label"
+    ];
+
+    public function students(){
+        return $this->hasMany(User::class);
+    }
 }

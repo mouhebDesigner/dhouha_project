@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta name="description" content="Responsive Admin Template">
     <meta name="author" content="SmartUniversity">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Smart University | Bootstrap Responsive Admin Template</title>
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
@@ -34,6 +35,7 @@
     <link rel="shortcut icon" href="https://www.einfosoft.com/templates/admin/smart/source/assets/img/favicon.ico">
     <!-- style -->
     <link rel="stylesheet" href="{{ asset('assets/css/pages/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/formlayout.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -777,6 +779,9 @@
         </div>
 
     </div>
+
+    <!-- Main Javascript file -->
+    <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
     <!-- start js include path -->
 	<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 	<script src="{{ asset('assets/plugins/popper/popper.js') }}"></script>
@@ -800,6 +805,64 @@
 	<!-- summernote -->
 	<script src="{{ asset('assets/plugins/summernote/summernote.js') }}"></script>
 	<script src="{{ asset('assets/js/pages/summernote/summernote-data.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+          $(".delete-confirm").on('click', function(e){
+          e.preventDefault();
+          var url = $(this).data('url');
+          console.log($('meta[name=csrf-token]').attr('content'));
+          swal({
+                  title: "",
+                  text: "هل أنت متأكد أنك تريد الحذف ؟",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                  if (willDelete) {
+                      var data = {
+                          "_token" : $('meta[name="csrf-token"]').attr('content'),
+                      };
+                      $.ajax({
+                          type: "DELETE",
+                          url: url,
+                          data: data,
+                          success: function(response){
+                              console.log(response);
+                              swal(response.deleted, {
+                                  icon: "success",
+                              }).then((result) => {
+                                  location.reload();
+                              });
+                          }
+                      })
+                  } else {
+                      swal("تم إلغاء الإجراء ");
+                  }
+              });
+          });
+          $(".edit-confirm").on('click', function(e){
+              e.preventDefault();
+              console.log($(this).data('model'));
+              var id = $(this).closest('tr').find('.product_id').val();
+              var href = $(this).attr('href');
+              swal({
+                  title: "",
+                  text: "هل أنت متأكد أنك تريد العديل ؟",
+                  icon: "primary",
+                  buttons: true,
+                  dangerMode: false,
+              })
+              .then((willEdit) => {
+                  if (willEdit) {
+                      window.location.href = href;
+                  } else {
+                      swal("تم إلغاء الإجراء ");
+                  }
+              });
+          });
+      });
+    </script>
 </body>
 
 </html>

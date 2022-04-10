@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NiveauController;
+use App\Http\Controllers\ParentController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-
+Route::resource('niveaux', NiveauController::class);
+Route::resource('students', StudentController::class);
+Route::resource('parents', ParentController::class);
+Route::resource('subjects', SubjectController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
