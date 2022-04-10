@@ -37,3 +37,7 @@
     height: 30px;
     display: inline-block;
 }
+
+table{
+    max-width:  100%;
+}
