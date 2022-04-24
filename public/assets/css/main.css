@@ -8,12 +8,12 @@
 }
 
 .info-box-icon__customized {
-    width: 180px;
+    width: max-content;
     height: 130px;
     overflow: hidden;
 }
 .info-box-icon__customized img{
-    width: 200px;
+    width: 128px;
     height: 140px;
 }
 
@@ -40,4 +40,11 @@
 
 table{
     max-width:  100%;
+}
+.form-group label{
+    font-weight: bold;
+    color: var(--theme-color);
+}
+.text-right{
+    text-align: right;
 }

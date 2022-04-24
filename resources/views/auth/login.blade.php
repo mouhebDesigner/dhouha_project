@@ -73,6 +73,9 @@
                                 {{ __('هل نسيت كلمة السر؟') }}
                             </a>
                             @endif
+                            <a class="btn btn-link" href="{{ route('register') }}" style="width: 100%;text-align: right;">
+                                {{ __('إنشاء حساب') }}
+                            </a>
                             <div class="form-group form-button d-flex justify-content-center">
                                 <button class="btn btn-round btn-primary" type="submit" name="signin" id="signin">تسجيل الدخول</button>
                             </div>

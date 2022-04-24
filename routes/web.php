@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::resource('niveaux', NiveauController::class);
-Route::resource('students', StudentController::class);
-Route::resource('parents', ParentController::class);
-Route::resource('subjects', SubjectController::class);
+Route::resource('students', StudentController::class)->except(['create', 'store']);
+Route::resource('parents', ParentController::class)->except(['create', 'store']);
+Route::resource('matieres', SubjectController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -410,3 +410,7 @@ figure {
   font-size: 13px;
   font-weight: 700;
 }
+
+.text-right{
+    text-align: right;
+}

@@ -50,4 +50,14 @@ class User extends Authenticatable
     public function niveau(){
         return $this->belongsTo(Niveau::class);
     }
+
+    public function isStudent(){
+        return Auth::user()->role == "etudiant";
+    }
+    public function isParent(){
+        return Auth::user()->role == "parent";
+    }
+    public function isAdmin(){
+        return Auth::user()->role == "admin";
+    }
 }

@@ -80,19 +80,13 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('students.create') }}" class="nav-link ">
-                                    <span class="title">
-                                        إضافة تلميذ
-                                    </span>
-                                </a>
-                            </li>
+                           
 
 
 
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @if(Request::is('parents')) active @endif">
                         <a href="#" class="nav-link nav-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
@@ -110,16 +104,10 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('parents.create') }}" class="nav-link ">
-                                    <span class="title">
-                                        إضافة ولي أمر
-                                    </span>
-                                </a>
-                            </li>
+                           
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @if(Request::is('matieres')) active @endif">
                         <a href="#" class="nav-link nav-toggle"> <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-book">
@@ -130,14 +118,14 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('subjects.index') }}" class="nav-link ">
+                                <a href="{{ route('matieres.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة المواد
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('subjects.create') }}" class="nav-link ">
+                                <a href="{{ route('matieres.create') }}" class="nav-link ">
                                     <span class="title">
                                         إضافة مادة
                                     </span>

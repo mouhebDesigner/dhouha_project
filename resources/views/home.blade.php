@@ -37,7 +37,7 @@
                     <span class="info-box-number" style="font-weight: bold;">{{ App\Models\Matiere::count() }}</span>
                 </div>
                 <div class="info-box-icon__customized">
-                    <img src="{{ asset('assets/img/parents.png') }}" alt="">
+                    <img src="{{ asset('assets/img/subjects.png') }}" alt="">
                 </div>
                 <!-- /.info-box-content -->
             </div>
