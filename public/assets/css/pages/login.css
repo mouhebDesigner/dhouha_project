@@ -54,7 +54,7 @@ h2 {
 }
 
 .container {
-  width: 900px;
+  width: 100vw;
   background: #fff;
   margin: 0 auto;
   box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);

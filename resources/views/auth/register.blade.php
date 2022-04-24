@@ -46,142 +46,156 @@
                         <h2 class="form-title text-center">تسجيل الدخول</h2>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="student">
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="nom" dir="rtl" type="text" placeholder="الإسم"
-                                            class="form-control input-height">
-                                            @error('nom')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                            <div class="row">
+                                <div class="col">
+                                    <div class="parent">
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="nom_parent" dir="rtl" type="text" placeholder="إسم الأب"
+                                                    class="form-control input-height">
+                                                @error('nom')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="prenom_parent" dir="rtl" type="text" placeholder="لقب الأب"
+                                                    class="form-control input-height">
+                                                @error('prenom_parent')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="numtel" dir="rtl" type="number" placeholder="رقم هاتف الأب"
+                                                    class="form-control input-height">
+                                                @error('numtel')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="email_parent" dir="rtl" type="text"
+                                                    placeholder=" البريد الإلكتروني الأب"
+                                                    class="form-control input-height">
+                                                @error('email')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="password" dir="rtl" type="password" placeholder="كلمة السر"
+                                                    class="form-control input-height">
+                                                @error('password')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="password_confirmation" dir="rtl" type="password"
+                                                    placeholder="تأكيد كلمة السر" class="form-control input-height">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="prenom" dir="rtl" type="text" placeholder="اللقب"
-                                            class="form-control input-height">
-                                            @error('prenom')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group @error('niveau_id') has-error @enderror">
-                                    <label class="text-right w-100" for="niveau_id">المرحلة التعليمية</label>
-                                    <select class="form-select" name="niveau_id" id="niveau_id">
-                                        <option selected disabled>إختيار مرحلة</option>
-                                        @foreach(App\Models\Niveau::all() as $niveau)
-                                            <option value="{{ $niveau->id }}" @if(old('niveau') == $niveau->id) selected @endif> {{ $niveau->label }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('niveau_id')
-                                        <span class="help-block">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                               
-                                <div class="form-group">
-                                    <div class="">
-                                        <label for="date_naissance" class="text-right w-100">تاريخ الولادة</label>
-                                        <input name="date_naissance" id="date_naissance" dir="rtl" type="date"
-                                            class="form-control input-height">
-                                            @error('date_naissance')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="email_parent" dir="rtl" type="text" placeholder="البريد الإلكتروني"
-                                            class="form-control input-height">
-                                            @error('email')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="parent">
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="nom_parent" dir="rtl" type="text" placeholder="إسم الأب"
-                                            class="form-control input-height">
-                                            @error('nom')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="prenom_parent" dir="rtl" type="text" placeholder="لقب الأب"
-                                            class="form-control input-height">
-                                            @error('prenom_parent')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="numtel" dir="rtl" type="number" placeholder="رقم هاتف الأب"
-                                            class="form-control input-height">
-                                            @error('numtel')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="email_parent" dir="rtl" type="text" placeholder=" البريد الإلكتروني الأب"
-                                            class="form-control input-height">
-                                            @error('email')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="password" dir="rtl" type="password" placeholder="كلمة السر"
-                                            class="form-control input-height"> 
-                                            @error('password')
-                                            <span class="invalid-feedback text-right d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                <div class="col">
+                                    <div class="student">
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="nom" dir="rtl" type="text" placeholder="الإسم"
+                                                    class="form-control input-height">
+                                                @error('nom')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="prenom" dir="rtl" type="text" placeholder="اللقب"
+                                                    class="form-control input-height">
+                                                @error('prenom')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group @error('niveau_id') has-error @enderror">
+                                            <label class="text-right w-100" for="niveau_id">المرحلة التعليمية</label>
+                                            <select class="form-select" name="niveau_id" id="niveau_id">
+                                                <option selected disabled>إختيار مرحلة</option>
+                                                @foreach(App\Models\Niveau::all() as $niveau)
+                                                <option value="{{ $niveau->id }}" @if(old('niveau')==$niveau->id)
+                                                    selected
+                                                    @endif> {{ $niveau->label }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('niveau_id')
+                                            <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="">
-                                        <input name="password_confirmation" dir="rtl" type="password" placeholder="تأكيد كلمة السر"
-                                            class="form-control input-height"> 
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <label for="date_naissance" class="text-right w-100">تاريخ
+                                                    الولادة</label>
+                                                <input name="date_naissance" id="date_naissance" dir="rtl" type="date"
+                                                    class="form-control input-height">
+                                                @error('date_naissance')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="">
+                                                <input name="email_parent" dir="rtl" type="text"
+                                                    placeholder="البريد الإلكتروني" class="form-control input-height">
+                                                @error('email')
+                                                <span class="invalid-feedback text-right d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
+                                
                             </div>
 
-                            
+
+
+
                             <a class="btn btn-link" href="{{ route('login') }}" style="width: 100%;text-align: right;">
                                 {{ __(' تسجيل الدخول') }}
                             </a>
                             <div class="form-group form-button d-flex justify-content-center">
-                                <button class="btn btn-round btn-primary" type="submit" name="signin" id="signin">تسجيل</button>
+                                <button class="btn btn-round btn-primary" type="submit" name="signin"
+                                    id="signin">تسجيل</button>
                             </div>
                         </form>
 

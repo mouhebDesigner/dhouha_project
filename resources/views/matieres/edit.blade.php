@@ -12,7 +12,7 @@
                 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('subjects.update', ['subject'=> $matiere]) }}" method="post">
+                <form action="{{ route('matieres.update', ['matiere'=> $matiere]) }}" method="post">
                     @csrf 
                     @method('put')
                     <div class="form-group @error('label') has-error @enderror">
@@ -35,7 +35,7 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary pull-right">إضافة</button>
+                    <button type="submit" class="btn btn-primary pull-right">تعديل</button>
                 </form>
             </div>
         </div>

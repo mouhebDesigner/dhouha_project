@@ -66,7 +66,7 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Matiere $subject)
+    public function edit(Matiere $matiere)
     {
         return view('matieres.edit', compact('matiere'));
     }
@@ -78,7 +78,7 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SubjectRequest $request, Matiere $subject)
+    public function update(SubjectRequest $request, Matiere $matiere)
     {
         $matiere->update($request->all());
 
@@ -92,13 +92,13 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Matiere $mateire)
+    public function destroy(Matiere $matiere)
     {
         
-        $mateire->delete();
+        $matiere->delete();
 
         return response()->json([
-            "deleted" => "price is deleted"
+            "deleted" => "Matiere est supprimé"
         ]);
     }
 
