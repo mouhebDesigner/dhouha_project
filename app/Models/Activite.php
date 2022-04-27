@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Activite extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "type",
+        "type_prevision",
+        "nbr_prevision",
+        "matiere_id"
+    ];
+
+    
+
+    public function matiere(){
+        return $this->belongsTo(Matiere::class);
+    }
+    public function questions(){
+        return $this->hasMany(Question::class);
+    }
 }

@@ -13,4 +13,8 @@ class Matiere extends Model
         'label',
         "niveau_id"
     ];
+
+    public function niveau(){
+        return $this->belongsTo(Niveau::class);
+    }
 }

@@ -53,7 +53,7 @@
                                             <div class="">
                                                 <input name="nom_parent" dir="rtl" type="text" placeholder="إسم الأب"
                                                     class="form-control input-height">
-                                                @error('nom')
+                                                @error('nom_parent')
                                                 <span class="invalid-feedback text-right d-block" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -89,7 +89,7 @@
                                                 <input name="email_parent" dir="rtl" type="text"
                                                     placeholder=" البريد الإلكتروني الأب"
                                                     class="form-control input-height">
-                                                @error('email')
+                                                @error('email_parent')
                                                 <span class="invalid-feedback text-right d-block" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -172,7 +172,7 @@
 
                                         <div class="form-group">
                                             <div class="">
-                                                <input name="email_parent" dir="rtl" type="text"
+                                                <input name="email" dir="rtl" type="text"
                                                     placeholder="البريد الإلكتروني" class="form-control input-height">
                                                 @error('email')
                                                 <span class="invalid-feedback text-right d-block" role="alert">

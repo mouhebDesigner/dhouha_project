@@ -55,7 +55,7 @@ class SubjectController extends Controller
     {
         Matiere::create($request->all());
 
-        return redirect('subjects')->with('created', 'لقد تمت إضافة المادة بنجاح');
+        return redirect('matieres')->with('created', 'لقد تمت إضافة المادة بنجاح');
     }
 
     

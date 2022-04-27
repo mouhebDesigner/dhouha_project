@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-@include('includes.page-header', ['title' => ' قائمة  المواد الدراسية'])
+@include('includes.page-header', ['title' => ' قائمة   الأسئلة'])
 <div class="row">
     <div class="col-md-12">
         <div class="card card-box">
@@ -9,9 +9,9 @@
                 <div class="d-flex justify-content-between align-items-center">
 
                     <header> 
-                         المواد الدراسية
+                          الأسئلة
                     </header>
-                    <a href="{{ route('matieres.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
+                    <a href="{{ route('questions.create', ['id' => $activite_id]) }}" id="addRow" class="btn btn-primary btn-primary__customized">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -24,32 +24,27 @@
                                 class="table table-striped table-bordered table-hover table-checkable order-column valign-middle dataTable no-footer"
                                 id="example4" aria-describedby="example4_info" style="width: 1581px;">
                                 <thead>
-                                    <tr>
-                                        <th class="sorting sorting_desc" tabindex="0" aria-controls="example4"
-                                            rowspan="1" colspan="1"
-                                            aria-label=" Roll No : activate to sort column ascending"
-                                            style="width: 126px;" aria-sort="descending"> # </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
-                                            colspan="1" aria-label=" Name : activate to sort column ascending"
-                                            style="width: 169px;"> إسم المرحلة </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
-                                            colspan="1" aria-label=" Action : activate to sort column ascending"
-                                            style="width: 116px;"> الإجراءات </th>
+                                    <tr>  
+                                        <th>  السؤال  </th>
+                                        <th>  عدد الإقتراحات </th>
+                                        <th>الإجراءات </th>   
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($matieres as $matiere)
+                                    @foreach($questions as $question)
                                     <tr class="gradeX even">
-                                        <td class="left sorting_1">{{ $matiere->id }}</td>
-                                        <td>{{ $matiere->label }}</td>
+                                        
+                                        <td>{{ $question->question }}</td>
+                                        <td>{{ $question->previsions()->count() }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
+                                               
                                                 <div>
-                                                    <a href="{{ url('matieres/'.$matiere->id.'/edit') }}" class="edit-confirm tblEditBtn">
+                                                    <a href="{{ url('questions/'.$question->id.'/edit') }}" class="edit-confirm tblEditBtn">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('matieres/'.$matiere->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('questions/'.$question->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                                 
@@ -64,7 +59,7 @@
                     </div>
                     <div class="row">
                         
-                        {{ $matieres->links() }}
+                        {{ $questions->links() }}
                     </div>
                 </div>
             </div>
