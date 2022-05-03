@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Activite;
 use App\Models\Question;
+use App\Models\Prevision;
 use Illuminate\Http\Request;
+use App\Http\Requests\QuestionRequest;
 
 class QuestionController extends Controller
 {
@@ -55,7 +57,7 @@ class QuestionController extends Controller
         if(Activite::find($activite_id)->type == "one")
         {
             $tab = array();
-            $count = count($request->contenue);
+            $count = count($request->description);
             for($i = 1; $i < $count; $i++){
                 if($request->reponse == $i){
                     array_push($tab, 1);
@@ -63,14 +65,15 @@ class QuestionController extends Controller
                 array_push($tab, 0);
             }
         }
+        
 
-        foreach($request->contenue as $key => $contenue){
+        foreach($request->description as $key => $description){
             $prevision = new Prevision;
             $prevision->question_id = $question->id;
             if(Activite::find($activite_id)->type_prevision == "text")
-                $prevision->contenue = $contenue;
+                $prevision->description = $description;
             else {
-                $prevision->contenue =  $contenue->store('images');
+                $prevision->description =  $description->store('images');
             }
             if(Activite::find($activite_id)->type == "one")
                 $prevision->reponse = $tab[$key];
@@ -78,7 +81,6 @@ class QuestionController extends Controller
                 $prevision->reponse = $request->input('reponse'.($key+1));
             $prevision->save();
 
-            echo $request->reponse;
 
         }
        
@@ -108,10 +110,11 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit($activite_id, Question $question)
+    public function edit($id)
     {
-        return view('questions.edit', compact('activite_id', 'question'));
-    }
+        $question = Question::find($id);
+        return view('questions.edit', compact('question'));
+    } 
 
 
     /**
@@ -121,11 +124,11 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$activite_id,  Question $question)
+    public function update(Request $request, $id)
     {
+        $question = Question::find($id);
 
-
-        if(Quiz::find($activite_id)->type_prevision == "text"){
+        if($question->activite->type_prevision == "text"){
             $request->validate([
                 'question' => 'required',
                 'contenue' => 'required',
@@ -143,7 +146,7 @@ class QuestionController extends Controller
         $question->question = $request->question;
         $question->save();
         
-        if(Quiz::find($activite_id)->type == "one" && !empty($request->contenue))
+        if($question->activite->type == "one" && !empty($request->contenue))
         {
             $tab = array();
             $count = count($request->contenue);
@@ -159,18 +162,18 @@ class QuestionController extends Controller
             foreach($question->previsions as $key => $prevision){
                 $prevision = Prevision::find($prevision->id);
                 $prevision->question_id = $question->id;
-                if(Quiz::find($activite_id)->type_prevision == "text")
+                if($question->activite->type_prevision == "text")
 
-                    $prevision->contenue = $request->contenue[$key];
+                    $prevision->description = $request->description[$key];
 
                 else {
                 
-                    if($request->hasFile('contenue')){
-                        $prevision->contenue =  $request->contenue[$key]->store('images');
+                    if($request->hasFile('description')){
+                        $prevision->description =  $request->description[$key]->store('images');
                     }
                 }
 
-                if(Quiz::find($activite_id)->type == "one")
+                if($question->activite->type == "one")
                     $prevision->reponse = $tab[$key];
                 else
                     $prevision->reponse = $request->input('reponse'.($key+1));
@@ -180,7 +183,7 @@ class QuestionController extends Controller
             }
         }   
 
-        return redirect('activites/'.$activite_id.'/questions')->with('updated', 'تم تعديل السؤال ');
+        return redirect('activites/'.$question->activite->id.'/questions')->with('updated', 'تم تعديل السؤال ');
     }
 
     /**

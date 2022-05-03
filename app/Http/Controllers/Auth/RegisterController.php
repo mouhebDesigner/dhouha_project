@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'prenom' => ['required', 'string', 'max:255'],
             'prenom_parent' => ['required', 'string', 'max:255'],
             'date_naissance' => ['required', 'date'],
-            'email.*' => ['required', 'string', 'email', 'max:255'],
+            'email.*' => ['required', 'string', 'email', 'max:255', "unique:users"],
             'numtel' => ['required', 'numeric','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -74,11 +74,12 @@ class RegisterController extends Controller
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'date_naissance' => $data['date_naissance'],
-            'email' => $data['email'][0],
+            'email' => $data['email'],
             'role' => 'etudiant',
             'numtel' => $data['numtel'],
             'password' => Hash::make($data['password']),
         ]);
+
         return User::create([
             'nom' => $data['nom_parent'],
             'prenom' => $data['prenom_parent'],

@@ -38,7 +38,9 @@
                                         <td>{{ $question->previsions()->count() }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
-                                               
+                                                <a href="{{ url('questions/'.$question->id.'/previsions') }}" class="btn btn-primary">
+                                                    عرض الإقتراحات
+                                                </a>
                                                 <div>
                                                     <a href="{{ url('questions/'.$question->id.'/edit') }}" class="edit-confirm tblEditBtn">
                                                         <i class="fa fa-pencil"></i>
@@ -47,8 +49,6 @@
                                                 <button type="submit" data-url="{{ url('questions/'.$question->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
-                                                
-                                                
                                             </div>
                                         </td>
                                     </tr>

@@ -862,6 +862,14 @@
               });
           });
       });
+        updateImage = function(index) {
+            var input = document.getElementById('description'+index);
+            var output = document.getElementById('imageName'+index);
+            output.innerText = "";
+            for (var i = 0; i < input.files.length; ++i) {
+                output.innerHTML += input.files.item(i).name + '/';
+            }
+        }
     </script>
 </body>
 

@@ -48,3 +48,29 @@ table{
 .text-right{
     text-align: right;
 }
+.label_file + input{
+    display: none;
+
+}
+.label_file{
+    border: 2px solid rgba(0, 0, 0, 0.527);
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    position: relative;
+    padding: 5px 5px;
+}
+.label_file::before{
+    content: "حمل صورة";
+    position: absolute;
+    width: 15%;
+    height: 80%;
+    background-color: rgb(125, 180, 189);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.label_file span{
+    margin-right: 20%;
+}

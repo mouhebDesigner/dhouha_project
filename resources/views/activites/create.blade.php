@@ -31,11 +31,11 @@
                         <label for="type"> نوع الإختبار </label>
                         <select name="type" class="form-control" id="type">
                             <option value="" disabled selected>إختر النوع</option>
-                            <option value="many">
-                                عدة إحتمالات
+                            <option value="fill_blank">
+                                 إملأ الفراغات
                             </option>
                             <option value="one">
-                                إحتمال واحد
+                                 سؤال و إحتمالات
                             </option>
                         </select>
                         @error('type')

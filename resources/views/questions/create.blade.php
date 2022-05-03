@@ -12,59 +12,46 @@
 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('questions.store') }}" method="post">
+                <form action="{{ route('questions.store', ['id' => $activite_id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group @error('matiere_id') has-error @enderror">
-                        <label for="matiere_id">اختر المادة </label>
-                        <select name="matiere_id" class="form-control" id="matiere_id">
-                            <option value="" disabled selected>إختر مادة</option>
-                            @foreach(App\Models\Matiere::all() as $matiere)
-                                <option value="{{ $matiere->id }}" @if(old('niveau') == $matiere->id) selected @endif> {{ $matiere->label }}</option>
-                            @endforeach
-                        </select>
-                        @error('matiere_id')
+                    <div class="form-group @error('question') has-error @enderror">
+                        <label for="matiere_id">أدخل محتوى السؤال  </label>
+                        <input type="text" name="question" class="form-control" id="simpleFormEmail" placeholder="محتوى السؤال ">
+                        @error('question')
                             <span class="help-block">{{ $message }}</span>
-
                         @enderror
                     </div>
-                    <div class="form-group @error('type') has-error @enderror">
-                        <label for="type"> نوع الإختبار </label>
-                        <select name="type" class="form-control" id="type">
-                            <option value="" disabled selected>إختر النوع</option>
-                            <option value="many">
-                                عدة إحتمالات
-                            </option>
-                            <option value="one">
-                                إحتمال واحد
-                            </option>
+                    <h2>
+                        ------------ الإحتمالات---------------------------------------------------------------------------------------------
+                    </h2>
+                    @for($i = 1; $i <= App\Models\Activite::find($activite_id)->nbr_prevision;   $i++)
+                        <div class="form-group @error('description') has-error @enderror">
+                            @if(App\Models\Activite::find($activite_id)->type_prevision == 'text')
+                                <label for="description{{ $i }}">  محتوى الإحتمال  {{$i}}</label>
+                                <input type="text" name="description" class="form-control" id="description{{ $i }}" placeholder="محتوى الإحتمال ">
+                            @else 
+                                <label for="description{{ $i }}">  محتوى الإحتمال  {{$i}}</label>
+                                <label for="description{{ $i }}" class="label_file" >
+                                    <span id="imageName{{ $i }}"></span>
+                                </label>
+                                <input type="file" name="description[]" class="form-control" onchange="javascript:updateImage({{$i}})"  id="description{{ $i }}" placeholder="محتوى الإحتمال ">
+                            @endif
+                            @error('description')
+                                <span class="help-block">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @endfor
+
+                    <div class="form-group @error('reponse') has-error @enderror">
+                        <label> الإجابة الصحيحة</label>
+                        <select class="form-select" name="reponse">
+                            <option value="" selected disabled>إختر الإجاتة الصحيحة </option>
+                            @for($i = 1; $i <= App\Models\Activite::find($activite_id)->nbr_prevision;   $i++)
+                                <option value="{{ $i }}">الإقتراح {{ $i }} </option>
+                            @endfor
                         </select>
-                        @error('type')
+                        @error('reponse')
                             <span class="help-block">{{ $message }}</span>
-
-                        @enderror
-                    </div>
-                    <div class="form-group @error('type_prevision') has-error @enderror">
-                        <label for="type_prevision"> نوع الإقتراحات </label>
-                        <select name="type_prevision" class="form-control" id="type_prevision">
-                            <option value="" disabled selected>إختر النوع</option>
-                            <option value="image">
-                                صور
-                            </option>
-                            <option value="text">
-                                نص
-                            </option>
-                        </select>
-                        @error('type_prevision')
-                            <span class="help-block">{{ $message }}</span>
-
-                        @enderror
-                    </div>
-                    <div class="form-group @error('nbr_prevision') has-error @enderror">
-                        <label for="nbr_prevision">عدد الإقتراحات</label>
-                        <input type="number" class="form-control" min="2" name="nbr_prevision" id="nbr_prevision">
-                        @error('nbr_prevision')
-                            <span class="help-block">{{ $message }}</span>
-
                         @enderror
                     </div>
 
