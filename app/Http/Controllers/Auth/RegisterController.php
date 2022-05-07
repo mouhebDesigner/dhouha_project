@@ -92,6 +92,7 @@ class RegisterController extends Controller
             'niveau_id' => $data['niveau_id'],
             'parent_id' => $parent->id,
             'password' => Hash::make($data['password']),
+            
         ]);
     }
 }
