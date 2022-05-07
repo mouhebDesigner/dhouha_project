@@ -24,4 +24,8 @@ class Activite extends Model
     public function questions(){
         return $this->hasMany(Question::class);
     }
+    
+    public function resultats(){
+        return $this->hasMany(Resultat::class);
+    }
 }

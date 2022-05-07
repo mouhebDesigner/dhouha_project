@@ -15,16 +15,24 @@
                 <form action="{{ route('activites.store') }}" method="post">
                     @csrf
                     <div class="form-group @error('matiere_id') has-error @enderror">
+                        <label for="niveau_id">اختر المرحلة </label>
+                        <select name="niveau_id" class="form-control" id="niveau_id">
+                            <option value="" disabled selected>إختر المرحلة</option>
+                            @foreach(App\Models\Niveau::all() as $niveau)
+                                <option value="{{ $niveau->id }}" @if(old('niveau') == $niveau->id) selected @endif> {{ $niveau->label }}</option>
+                            @endforeach
+                        </select>
+                        @error('niveau_id')
+                            <span class="help-block">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group @error('matiere_id') has-error @enderror">
                         <label for="matiere_id">اختر المادة </label>
                         <select name="matiere_id" class="form-control" id="matiere_id">
                             <option value="" disabled selected>إختر مادة</option>
-                            @foreach(App\Models\Matiere::all() as $matiere)
-                                <option value="{{ $matiere->id }}" @if(old('niveau') == $matiere->id) selected @endif> {{ $matiere->label }}</option>
-                            @endforeach
                         </select>
                         @error('matiere_id')
                             <span class="help-block">{{ $message }}</span>
-
                         @enderror
                     </div>
                     <div class="form-group @error('type') has-error @enderror">

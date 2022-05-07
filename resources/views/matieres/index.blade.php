@@ -31,6 +31,9 @@
                                             style="width: 126px;" aria-sort="descending"> # </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Name : activate to sort column ascending"
+                                            style="width: 169px;"> إسم المادة </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                            colspan="1" aria-label=" Name : activate to sort column ascending"
                                             style="width: 169px;"> إسم المرحلة </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Action : activate to sort column ascending"
@@ -42,6 +45,7 @@
                                     <tr class="gradeX even">
                                         <td class="left sorting_1">{{ $matiere->id }}</td>
                                         <td>{{ $matiere->label }}</td>
+                                        <td>{{ $matiere->niveau->label }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
                                                 <div>

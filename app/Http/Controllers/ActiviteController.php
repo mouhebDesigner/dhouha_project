@@ -53,9 +53,9 @@ class ActiviteController extends Controller
      * @param  \App\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function show(Quiz $quiz)
+    public function show(Activite $activite)
     {
-        //
+        
     }
 
     /**

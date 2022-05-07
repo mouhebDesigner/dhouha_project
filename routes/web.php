@@ -5,9 +5,11 @@ use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\ActiviteController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\PrevisionController;
+use App\Http\Controllers\Student\MatiereController;
+use App\Http\Controllers\Student\ActiviteController as ActiviteControllerStudent;
+use App\Http\Controllers\ActiviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\PrevisionController;
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->middleware('guest');
 Route::resource('niveaux', NiveauController::class);
 Route::resource('students', StudentController::class)->except(['create', 'store']);
 Route::resource('parents', ParentController::class)->except(['create', 'store']);
@@ -35,5 +37,14 @@ Route::get('activites/{id}/questions', [QuestionController::class, 'index']);
 Route::get('activites/{id}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
 Route::post('activites/{id}/questions', [QuestionController::class, 'store'])->name('questions.store');
 Auth::routes();
-
+// STUDENT PART ------------------------------------------
+Route::resource('matieres', MatiereController::class)->only('index', 'show');
+Route::get('matiere/{id}/examens', [MatiereController::class, 'show']);
+Route::get('examens/{id}', [ActiviteControllerStudent::class, 'show']);
+Route::post('activite/{id}', [ActiviteControllerStudent::class, 'store']);
+Route::get('activite/{id}/result', [ActiviteControllerStudent::class, 'result']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/testajax/{niveau}', function($niveau){
+    $matieres = App\Models\Matiere::where('niveau_id', $niveau)->get();
+    return response()->json($matieres);
+});

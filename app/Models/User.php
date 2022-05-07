@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Auth;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -22,10 +22,11 @@ class User extends Authenticatable
         'prenom',
         'date_naissance',
         'genre',
-        'niveau_id',
         'email',
         'role',
         'password',
+        'niveau_id',
+        'parent_id',
     ];
 
     /**
@@ -49,6 +50,14 @@ class User extends Authenticatable
 
     public function niveau(){
         return $this->belongsTo(Niveau::class);
+    }
+
+    public function parent(){
+        return $this->hasOne(User::class, 'id', 'parent_id');
+    }
+    
+    public function child(){
+        return $this->belongsTo(User::class, 'id', 'parent_id');
     }
 
     public function isStudent(){

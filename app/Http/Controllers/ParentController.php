@@ -20,7 +20,7 @@ class ParentController extends Controller
     public function index(Request $request) 
     {
 
-        $parents = User::where('role', 'etudiant')->orderBy('created_at', 'desc')->paginate(10);
+        $parents = User::where('role', 'parent')->orderBy('created_at', 'desc')->paginate(10);
         if(str_contains($request->path(), 'admin') && Auth::user()->isParent()){
             abort(404);
         }

@@ -870,7 +870,27 @@
                 output.innerHTML += input.files.item(i).name + '/';
             }
         }
+        $("#niveau_id").on('change', function(){
+            console.log('kleahdjkaed');
+            var niveau = $(this).val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type:'get',
+                url:'/testajax/'+niveau,
+                data:'_token = <?php echo csrf_token() ?>',
+                success:function(data) {
+                    $("#matiere_id").empty();
+                    $("#matiere_id").append('<option value="" disabled selected>إختر مادة</option>')
+                    $.each(data, function(index, value){
+                        $("#matiere_id").append('<option value="'+value.id+'">'+value.label+'</option>')
+                    });
+                }    
+            });
+        });
     </script>
+
 </body>
 
 </html>

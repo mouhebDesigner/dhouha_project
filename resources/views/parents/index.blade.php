@@ -34,6 +34,9 @@
                                             colspan="1" aria-label=" Department : activate to sort column ascending"
                                             style="width: 180px;"> البريد  الإلكتروني </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                            colspan="1" aria-label=" Department : activate to sort column ascending"
+                                            style="width: 180px;">   الإبن </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Email : activate to sort column ascending"
                                             style="width: 247px;"> تاريخ الإلتحاق </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
@@ -50,6 +53,7 @@
                                         <td class="left sorting_1">{{ $parent->id }}</td>
                                         <td>{{ $parent->nom }} {{ $parent->prenom }}</td>
                                         <td class="left">{{ $parent->email }}</td>
+                                        <td class="left">{{ $parent->child->nom }} {{ $parent->child->prenom }}</td>
                                         <td class="left">{{ $parent->created_at->format('Y-m-d') }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">

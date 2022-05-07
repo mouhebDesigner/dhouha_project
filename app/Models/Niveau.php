@@ -16,4 +16,11 @@ class Niveau extends Model
     public function students(){
         return $this->hasMany(User::class);
     }
+
+    
+    public function matieres(){
+        return $this->hasMany(Matiere::class);
+    }
+
+    
 }

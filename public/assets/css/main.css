@@ -74,3 +74,28 @@ table{
 .label_file span{
     margin-right: 20%;
 }
+.matiere_block:hover{
+    background: #f8faff;
+}
+.matiere_block{
+    border: 1px solid #354080;
+    height: 145px;
+    width: calc(100%/6);
+    background: #fff;
+    box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.matiere_block span{
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 16px;
+}
