@@ -12,7 +12,7 @@
 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('activites.store') }}" method="post">
+                <form action="{{ route('admin.activites.store') }}" method="post">
                     @csrf
                     <div class="form-group @error('matiere_id') has-error @enderror">
                         <label for="niveau_id">اختر المرحلة </label>

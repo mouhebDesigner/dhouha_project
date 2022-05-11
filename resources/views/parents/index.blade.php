@@ -58,11 +58,11 @@
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
                                                 <div>
-                                                    <a href="{{ url('parents/'.$parent->id.'/edit') }}" class="edit-confirm tblEditBtn">
-                                                            <i class="fa fa-pencil"></i>
+                                                    <a href="{{ url('admin/parents/'.$parent->id.'/edit') }}" class="edit-confirm tblEditBtn">
+                                                        <i class="fa fa-pencil"></i>
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('parents/'.$parent->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('admin/parents/'.$parent->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </div>

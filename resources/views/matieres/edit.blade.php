@@ -12,7 +12,7 @@
                 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('matieres.update', ['matiere'=> $matiere]) }}" method="post">
+                <form action="{{ route('admin.matieres.update', ['matiere'=> $matiere]) }}" method="post">
                     @csrf 
                     @method('put')
                     <div class="form-group @error('label') has-error @enderror">

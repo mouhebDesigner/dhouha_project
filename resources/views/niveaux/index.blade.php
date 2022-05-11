@@ -10,7 +10,7 @@
 
                     <header>المراحل التعليمية
                     </header>
-                    <a href="{{ route('niveaux.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
+                    <a href="{{ route('admin.niveaux.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -50,11 +50,11 @@
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
                                                 <div>
-                                                    <a href="{{ url('niveaux/'.$niveau->id.'/edit') }}" class="edit-confirm tblEditBtn">
+                                                    <a href="{{ url('admin/niveaux/'.$niveau->id.'/edit') }}" class="edit-confirm tblEditBtn">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('niveaux/'.$niveau->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('admin/niveaux/'.$niveau->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                                 

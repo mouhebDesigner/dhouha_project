@@ -10,7 +10,7 @@
                 <header> تعديل مرحلة تعليمية</header>
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('niveaux.update',['niveau' => $niveau]) }}" method="post">
+                <form action="{{ route('admin.niveaux.update',['niveau' => $niveau]) }}" method="post">
                     @csrf 
                     @method('put')
                     <div class="form-group @error('label') has-error @enderror">

@@ -55,7 +55,7 @@ class SubjectController extends Controller
     {
         Matiere::create($request->all());
 
-        return redirect('matieres')->with('created', 'لقد تمت إضافة المادة بنجاح');
+        return redirect('admin/matieres')->with('created', 'لقد تمت إضافة المادة بنجاح');
     }
 
     
@@ -82,7 +82,7 @@ class SubjectController extends Controller
     {
         $matiere->update($request->all());
 
-        return redirect()->route('matieres.index')->with('updated', 'لقد تم تعديل المادة بنجاح');
+        return redirect()->route('admin.matieres.index')->with('updated', 'لقد تم تعديل المادة بنجاح');
 
     }
 

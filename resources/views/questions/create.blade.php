@@ -12,7 +12,7 @@
 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('questions.store', ['id' => $activite_id]) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.questions.store', ['id' => $activite_id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group @error('question') has-error @enderror">
                         <label for="matiere_id">أدخل محتوى السؤال  </label>
@@ -28,13 +28,15 @@
                         <div class="form-group @error('description') has-error @enderror">
                             @if(App\Models\Activite::find($activite_id)->type_prevision == 'text')
                                 <label for="description{{ $i }}">  محتوى الإحتمال  {{$i}}</label>
-                                <input type="text" name="description" class="form-control" id="description{{ $i }}" placeholder="محتوى الإحتمال ">
+                                <input type="text" name="description[]" class="form-control" id="description{{ $i }}" placeholder="محتوى الإحتمال ">
                             @else 
                                 <label for="description{{ $i }}">  محتوى الإحتمال  {{$i}}</label>
                                 <label for="description{{ $i }}" class="label_file" >
                                     <span id="imageName{{ $i }}"></span>
                                 </label>
+                              
                                 <input type="file" name="description[]" class="form-control" onchange="javascript:updateImage({{$i}})"  id="description{{ $i }}" placeholder="محتوى الإحتمال ">
+
                             @endif
                             @error('description')
                                 <span class="help-block">{{ $message }}</span>

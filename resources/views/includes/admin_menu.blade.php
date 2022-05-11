@@ -45,14 +45,14 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('niveaux.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.niveaux.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة المراحل التعليمية
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('niveaux.create') }}" class="nav-link ">
+                                <a href="{{ route('admin.niveaux.create') }}" class="nav-link ">
                                     <span class="title">
                                         إضافة مرحلة
                                     </span>
@@ -74,7 +74,7 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('students.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.students.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة التلاميذ
                                     </span>
@@ -98,7 +98,7 @@
                             <span class="title">أولياء الأمر</span><span class="arrow"></span></a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('parents.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.parents.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة الأولياء
                                     </span>
@@ -118,14 +118,14 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('matieres.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.matieres.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة المواد
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('matieres.create') }}" class="nav-link ">
+                                <a href="{{ route('admin.matieres.create') }}" class="nav-link ">
                                     <span class="title">
                                         إضافة مادة
                                     </span>
@@ -145,14 +145,14 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('activites.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.activites.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة الأنشطة
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('activites.create') }}" class="nav-link ">
+                                <a href="{{ route('admin.activites.create') }}" class="nav-link ">
                                     <span class="title">
                                         إضافة نشاط
                                     </span>
@@ -172,14 +172,14 @@
                         </a>
                         <ul class="sub-menu" style="display: none;">
                             <li class="nav-item">
-                                <a href="{{ route('histoires.index') }}" class="nav-link ">
+                                <a href="{{ route('admin.histoires.index') }}" class="nav-link ">
                                     <span class="title">
                                         قائمة القصص
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('histoires.create') }}" class="nav-link ">
+                                <a href="{{ route('admin.histoires.create') }}" class="nav-link ">
                                     <span class="title">
                                         إضافة قصة
                                     </span>

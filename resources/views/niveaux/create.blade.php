@@ -12,7 +12,7 @@
                 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('niveaux.store') }}" method="post">
+                <form action="{{ route('admin.niveaux.store') }}" method="post">
                     @csrf 
                     <div class="form-group @error('label') has-error @enderror">
                         <label class="pull-right" for="simpleFormEmail">إسم المرحلة</label>

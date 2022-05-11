@@ -86,7 +86,7 @@ class QuestionController extends Controller
        
 
 
-        return redirect('activites/'.$activite_id.'/questions')->with('added', 'تمت إضافة السؤال الجديد');
+        return redirect('admin/activites/'.$activite_id.'/questions')->with('added', 'تمت إضافة السؤال الجديد');
 
     }
 

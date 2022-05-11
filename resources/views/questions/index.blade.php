@@ -11,7 +11,7 @@
                     <header> 
                           الأسئلة
                     </header>
-                    <a href="{{ route('questions.create', ['id' => $activite_id]) }}" id="addRow" class="btn btn-primary btn-primary__customized">
+                    <a href="{{ route('admin.questions.create', ['id' => $activite_id]) }}" id="addRow" class="btn btn-primary btn-primary__customized">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -42,11 +42,11 @@
                                                     عرض الإقتراحات
                                                 </a>
                                                 <div>
-                                                    <a href="{{ url('questions/'.$question->id.'/edit') }}" class="edit-confirm tblEditBtn">
+                                                    <a href="{{ url('admin/questions/'.$question->id.'/edit') }}" class="edit-confirm tblEditBtn">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('questions/'.$question->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('admin/questions/'.$question->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </div>

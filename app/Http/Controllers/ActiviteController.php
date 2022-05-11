@@ -44,7 +44,7 @@ class ActiviteController extends Controller
     {
         Activite::create($request->all());
 
-        return redirect('/activites')->with('added', 'تمت إضافة الإختبار بنجاح');
+        return redirect('admin/activites')->with('added', 'تمت إضافة الإختبار بنجاح');
     }
 
     /**

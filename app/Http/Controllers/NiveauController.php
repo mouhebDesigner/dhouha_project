@@ -55,7 +55,7 @@ class NiveauController extends Controller
     {
         Niveau::create($request->all());
 
-        return redirect('niveaux')->with('created', 'لقد تمت إضافة المرحلة بنجاح');
+        return redirect('admin/niveaux')->with('created', 'لقد تمت إضافة المرحلة بنجاح');
     }
 
     
@@ -82,7 +82,7 @@ class NiveauController extends Controller
     {
         $niveau->update($request->all());
 
-        return redirect()->route('niveaux.index')->with('updated', 'لقد تم تعديل المرحلة بنجاح');
+        return redirect()->route('admin.niveaux.index')->with('updated', 'لقد تم تعديل المرحلة بنجاح');
 
     }
 
