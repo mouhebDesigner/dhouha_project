@@ -38,7 +38,7 @@
                                         <td>{{ $question->previsions()->count() }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
-                                                <a href="{{ url('questions/'.$question->id.'/previsions') }}" class="btn btn-primary">
+                                                <a href="{{ url('admin/questions/'.$question->id.'/previsions') }}" class="btn btn-primary">
                                                     عرض الإقتراحات
                                                 </a>
                                                 <div>
