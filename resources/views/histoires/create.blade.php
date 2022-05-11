@@ -10,7 +10,7 @@
                 <header> إضافة قصة</header>
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ route('histoires.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.histoires.store') }}" method="post" enctype="multipart/form-data">
                     @csrf 
                     <div class="form-group @error('titre') has-error @enderror">
                         <label class="pull-right" for="simpleFormEmail">إسم القصة</label>

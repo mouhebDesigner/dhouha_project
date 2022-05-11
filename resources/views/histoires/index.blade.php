@@ -10,7 +10,7 @@
 
                     <header>القصص 
                     </header>
-                    <a href="{{ route('histoires.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
+                    <a href="{{ route('admin.histoires.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -50,11 +50,11 @@
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
                                                 <div>
-                                                    <a href="{{ route('histoires.show', ['histoire' => $histoire]) }}" class="tblEditBtn">
+                                                    <a href="{{ route('admin.histoires.show', ['histoire' => $histoire]) }}" class="tblEditBtn">
                                                         عرض القصة
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('histoires/'.$histoire->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('admin/histoires/'.$histoire->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                                 
