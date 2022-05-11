@@ -12,9 +12,12 @@ class MatiereController extends Controller
     {
         if(Auth::user()->isParent()){
             $matieres = Auth::user()->child->niveau->matieres()->get();
-        } else {
+        } else if(Auth::user()->isStudent()) {
             
             $matieres = Auth::user()->niveau->matieres()->get();
+        } else {
+            $matieres = Matiere::all();
+
         }
         return view('student.matieres.index', compact('matieres'));
     }
