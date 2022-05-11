@@ -161,6 +161,33 @@
 
                         </ul>
                     </li>
+                    <li class="nav-item @if(Request::is('histoires')) active @endif">
+                        <a href="#" class="nav-link nav-toggle"> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-book">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            <span class="title">القصص</span> <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li class="nav-item">
+                                <a href="{{ route('histoires.index') }}" class="nav-link ">
+                                    <span class="title">
+                                        قائمة القصص
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('histoires.create') }}" class="nav-link ">
+                                    <span class="title">
+                                        إضافة قصة
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
                 </ul>
                 <div class="slimScrollBar"
                     style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 919px;">

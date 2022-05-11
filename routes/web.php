@@ -5,11 +5,12 @@ use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ActiviteController;
+use App\Http\Controllers\HistoireController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\PrevisionController;
 use App\Http\Controllers\Student\MatiereController;
 use App\Http\Controllers\Student\ActiviteController as ActiviteControllerStudent;
-use App\Http\Controllers\ActiviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 Route::resource('niveaux', NiveauController::class);
+Route::resource('histoires', HistoireController::class);
 Route::resource('students', StudentController::class)->except(['create', 'store']);
 Route::resource('parents', ParentController::class)->except(['create', 'store']);
 Route::resource('matieres', SubjectController::class);

@@ -71,6 +71,16 @@ table{
     text-align: center;
     line-height: 30px;
 }
+.label_file.vocal::before{
+    content: "حمل الصوت";
+    position: absolute;
+    width: 15%;
+    height: 80%;
+    background-color: rgb(125, 180, 189);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
 .label_file span{
     margin-right: 20%;
 }
