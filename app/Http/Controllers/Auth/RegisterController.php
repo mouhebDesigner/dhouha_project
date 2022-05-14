@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'prenom' => ['required', 'string', 'max:255'],
             'prenom_parent' => ['required', 'string', 'max:255'],
             'date_naissance' => ['required', 'date'],
-            'email.*' => ['required', 'string', 'email', 'max:255', "unique:users"],
+            'email' => ['required', 'string', 'email', 'max:255', "unique:users"],
             'numtel' => ['required', 'numeric','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -70,27 +70,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         $parent = User::create([
-            'nom' => $data['nom_parent'],
-            'prenom' => $data['prenom_parent'],
-            'date_naissance' => $data['date_naissance'],
-            'email' => $data['email_parent'],
-            'numtel' => $data['numtel'],
-            'role' => 'parent',
-            'password' => Hash::make($data['password']),
-        ]);
+         
 
         
 
         return User::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
+            'parent_name' => $data['nom_parent']." ".$data['prenom_parent'],
             'date_naissance' => $data['date_naissance'],
             'email' => $data['email'],
             'role' => 'etudiant',
             'numtel' => $data['numtel'],
             'niveau_id' => $data['niveau_id'],
-            'parent_id' => $parent->id,
             'password' => Hash::make($data['password']),
             
         ]);

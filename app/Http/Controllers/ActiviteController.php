@@ -77,13 +77,13 @@ class ActiviteController extends Controller
      * @param  \App\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Activite $activite)
+    public function update(ActiviteRequest $request, Activite $activite)
     {
 
         $activite->update($request->all());
 
 
-        return redirect('/activites')->with('added', 'تم تحديث الإختبار بنجاح');
+        return redirect('admin/activites')->with('added', 'تم تحديث الإختبار بنجاح');
     }
 
     /**
@@ -94,12 +94,10 @@ class ActiviteController extends Controller
      */
     public function destroy(Activite $activite)
     {
+        
         $activite->delete();
-        foreach($activite->questions as $question)
-        {
-            $question->delete();
-        }
-
-        return redirect('activites')->with('deleted', 'تم حذف الإختبار بنجاج');
+        return response()->json([
+            "deleted" => "تم الحذف النشاط بنجاح"
+        ]);
     }
 }

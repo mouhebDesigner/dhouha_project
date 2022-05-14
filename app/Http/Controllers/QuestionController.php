@@ -52,6 +52,11 @@ class QuestionController extends Controller
         
         $question->activite_id  = $activite_id;
         $question->question = $request->question;
+        if($request->hasFile('image')){
+
+            $question->image = $request->image->store('images');
+        }
+
         $question->save();
         
         if(Activite::find($activite_id)->type == "one")
@@ -192,15 +197,11 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy($activite_id,Question $question)
+    public function destroy(Question $question)
     {
         $question->delete();
-
-        foreach($question->previsions as $prevision)
-        {
-           echo  $prevision->delete();
-        }
-
-        return redirect('activites/'.$activite_id.'/questions')->with('deleted', 'تم حذف السؤال بنجاج');
+        return response()->json([
+            "deleted" => "تم حذف السؤال بنجاح"
+        ]);
     }
 }

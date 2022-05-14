@@ -25,12 +25,13 @@ class MatiereController extends Controller
     public function show($id)
     {
         $examens = Matiere::find($id)->activites()->get();
+        $matiere = Matiere::find($id);
         if(Auth::user()->isParent()){
 
-            return view('student.examens.parentConnected', compact('examens'));
+            return view('student.examens.parentConnected', compact('examens',"matiere"));
         }else {
 
-            return view('student.examens.index', compact('examens'));
+            return view('student.examens.index', compact('examens', "matiere"));
         }
     }
 }

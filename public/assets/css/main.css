@@ -109,3 +109,22 @@ table{
     font-weight: bold;
     font-size: 16px;
 }
+
+.reponse_input {
+    display: none;
+}
+.reponse_input + .reponse_label{
+    width: 600px;
+    height: 66px;
+    background-color: #66a7d77d;
+    margin-top: 10px;
+    line-height: 60px;
+    padding: 0px 21px;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+.reponse_input:checked + .reponse_label{
+    background-color: #31678d7d;
+}

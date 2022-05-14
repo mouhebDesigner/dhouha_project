@@ -84,18 +84,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="">
-                                                <input name="email_parent" dir="rtl" type="text"
-                                                    placeholder=" البريد الإلكتروني الأب"
-                                                    class="form-control input-height">
-                                                @error('email_parent')
-                                                <span class="invalid-feedback text-right d-block" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                    
                                         <div class="form-group">
                                             <div class="">
                                                 <input name="password" dir="rtl" type="password" placeholder="كلمة السر"

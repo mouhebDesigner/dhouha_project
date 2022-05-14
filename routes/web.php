@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('questions/{question_id}/previsions', [PrevisionController::class, 'index']);
         Route::get('questions/{id}/edit', [QuestionController::class, 'edit']);
         Route::put('questions/{id}', [QuestionController::class, 'update'])->name('questions.update');
+        Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
         Route::get('activites/{id}/questions', [QuestionController::class, 'index']);
         Route::get('activites/{id}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
         Route::post('activites/{id}/questions', [QuestionController::class, 'store'])->name('questions.store');

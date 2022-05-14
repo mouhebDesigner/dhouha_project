@@ -14,22 +14,32 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ url('activite/'.$activite_id) }}" method="post">
+                <form action="{{ url('activite/'.$activite_id) }}" method="post" style="background: url({{ asset('assets/img/examen.jpg') }}); background-size: cover;">
                     @csrf
                     @foreach($questions as $question)
-                        <div class="row mt-5">
-                            <div class="col-md-8 offset-md-2">
-                                <div class="question">{{ $question->question }} ؟</div>
+                        <div class="row mt-5" >
+                            <div class="col-md-12 d-flex flex-column align-items-center">
+                                <div class="question" style="background: #006378;
+                                        color: white;
+                                        width: 100%;
+                                        height: 50px;
+                                        text-align: center;
+                                        line-height: 50px;
+                                        font-weight: bold;">{{ $question->question }} ؟</div>
+                                @if($question->image)
+                                    <img src="{{ asset('images/'.$question->image) }}" width="200" alt="">
+                                @endif
                                 <input type="hidden" value="{{ $question->id }}" name="question_ids[]">
                             </div>
                         </div>
                         <div class="row mt-5">
                             @foreach($question->previsions as $key => $reponse)
-                            <div class="col-md-8 offset-md-2">
+                            <div class="col-md-12 d-flex flex-column align-items-center">
                                 <div class="reponse">
 
-                                    <input type="radio" value="{{ $reponse->id }}" id="reponse{{ $reponse->id }}" name="reponse{{ $question->id }}">
-                                    <label for="reponse{{ $reponse->id }}">
+                                    <input type="radio" class="reponse_input" value="{{ $reponse->id }}" id="reponse{{ $reponse->id }}" name="reponse{{ $question->id }}">
+                                    <label class="reponse_label" for="reponse{{ $reponse->id }}">
+                                        <span>{{$key}}</span>
                                         @if($question->activite->type_prevision == "image")
                                             <img src="{{ asset('images/'.$reponse->description) }}" width="50" alt="">
                                         @else 

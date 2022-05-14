@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
+            $table->string('parent_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,7 +27,6 @@ class CreateUsersTable extends Migration
             $table->date('date_naissance');
             $table->text('photo')->nullable();
             $table->boolean('approuver')->nullable();
-            $table->foreignId('parent_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('niveau_id')->nullable()->constrained('niveaux')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();

@@ -35,14 +35,14 @@
                                             colspan="1" aria-label=" Department : activate to sort column ascending"
                                             style="width: 180px;"> البريد  الإلكتروني </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                            colspan="1" aria-label=" Department : activate to sort column ascending"
+                                            style="width: 180px;">   هاتف الأب </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Mobile : activate to sort column ascending"
                                             style="width: 165px;">  المرحلة التعليمية </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Email : activate to sort column ascending"
                                             style="width: 247px;"> تاريخ الإلتحاق </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
-                                            colspan="1" aria-label=" Action : activate to sort column ascending"
-                                            style="width: 116px;"> الإجراءات </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,21 +54,11 @@
                                         <td class="left sorting_1">{{ $student->id }}</td>
                                         <td>{{ $student->nom }} {{ $student->prenom }}</td>
                                         <td class="left">{{ $student->email }}</td>
+                                        <td class="left">{{ $student->numtel }}</td>
                                         <td><a href="tel:444543564">
                                                 {{ $student->niveau->label }} </a></td>
                                         <td class="left">{{ $student->created_at->format('Y-m-d') }}</td>
-                                        <td>
-                                            <div class="d-flex justify-content-around align-items-center">
-                                                <div>
-                                                    <a href="{{ url('students/'.$student->id.'/edit') }}" class="edit-confirm tblEditBtn">
-                                                            <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                </div>
-                                                <button type="submit" data-url="{{ url('students/'.$student->id) }}" class="delete-confirm tblDelBtn" style="border: none">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
                                     @endforeach
                                 </tbody>

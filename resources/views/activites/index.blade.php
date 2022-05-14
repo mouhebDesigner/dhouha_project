@@ -63,15 +63,13 @@
                                                     عرض الأسئلة
                                                 </a>
                                                 <div>
-                                                    <a href="{{ url('admin/activite/'.$activite->id.'/edit') }}" class="edit-confirm tblEditBtn">
+                                                    <a href="{{ url('admin/activites/'.$activite->id.'/edit') }}" class="edit-confirm tblEditBtn">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                 </div>
-                                                <button type="submit" data-url="{{ url('admin/activite/'.$activite->id) }}" class="delete-confirm tblDelBtn" style="border: none">
+                                                <button type="submit" data-url="{{ url('admin/activites/'.$activite->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
-                                                </button>
-                                                
-                                                
+                                                </button> 
                                             </div>
                                         </td>
                                     </tr>

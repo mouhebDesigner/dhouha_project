@@ -9,7 +9,7 @@
                 <div class="d-flex justify-content-between align-items-center">
 
                     <header> 
-                        إختبارات مادة {{ $examens->first()->matiere->label }}
+                        إختبارات مادة {{ $matiere->label }}
                     </header>
                 </div>
             </div>

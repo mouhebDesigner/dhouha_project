@@ -18,9 +18,18 @@
                         <label for="matiere_id">أدخل محتوى السؤال  </label>
                         <input type="text" name="question" class="form-control" id="simpleFormEmail" placeholder="محتوى السؤال ">
                         @error('question')
-                            <span class="help-block">{{ $message }}</span>
+                        <span class="help-block">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="form-group @error('image') has-error @enderror">
+                        <label for="image">  محتوى السؤال</label>
+                        <label for="image" class="label_file" >
+                            <span id="imageName"></span>
+                        </label>
+                        
+                        <input type="file" name="image" class="form-control" onchange="javascript:updateImage()"  id="image" placeholder="محتوى السؤال ">
+                    </div>
+
                     <h2>
                         ------------ الإحتمالات---------------------------------------------------------------------------------------------
                     </h2>
