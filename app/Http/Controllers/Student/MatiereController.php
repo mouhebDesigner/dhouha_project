@@ -24,14 +24,16 @@ class MatiereController extends Controller
     
     public function show($id)
     {
-        $examens = Matiere::find($id)->activites()->get();
+        $lessons = Matiere::find($id)->lessons()->get();
         $matiere = Matiere::find($id);
         if(Auth::user()->isParent()){
 
-            return view('student.examens.parentConnected', compact('examens',"matiere"));
+            return view('student.lessons.parentConnected', compact('examens',"matiere"));
+            // return view('student.examens.parentConnected', compact('examens',"matiere"));
         }else {
 
-            return view('student.examens.index', compact('examens', "matiere"));
+            return view('student.lessons.index', compact('lessons', "matiere"));
+            // return view('student.examens.index', compact('examens', "matiere"));
         }
     }
 }

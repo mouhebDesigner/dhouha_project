@@ -20,10 +20,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($matieres as $matiere)
-                            <a href="{{ url('matiere/'.$matiere->id.'/lessons') }}" title="عرض الإختبارات" class="matiere_block"> 
+                        @foreach($lessons as $lesson)
+                            <a href="{{ url('lesson/'.$lesson->id.'/activites') }}" title="عرض الإختبارات" class="matiere_block"> 
                                 <img src="{{ asset('assets/img/subject.png') }}" width="50" height="50" alt="">
-                                <span>{{ $matiere->label }}</span>
+                                <span>{{ $lesson->label }}</span>
                             </a>
                         @endforeach
                     </div>

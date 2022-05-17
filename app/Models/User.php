@@ -55,6 +55,9 @@ class User extends Authenticatable
     public function parent(){
         return $this->hasOne(User::class, 'id', 'parent_id');
     }
+    public function resultats(){
+        return $this->hasMany(Resultat::class);
+    }
     
     public function child(){
         return $this->belongsTo(User::class, 'id', 'parent_id');
@@ -69,4 +72,6 @@ class User extends Authenticatable
     public function isAdmin(){
         return Auth::user()->role == "admin";
     }
+
+    
 }

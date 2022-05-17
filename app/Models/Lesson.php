@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matiere extends Model
+class Lesson extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'label',
-        "niveau_id"
+        "label",
+        "matiere_id"
     ];
 
-    public function niveau(){
-        return $this->belongsTo(Niveau::class);
+    public function matiere(){
+        return $this->belongsTo(Matiere::class);
     }
-
+    
     public function activites(){
         return $this->hasMany(Activite::class);
-    }
-    public function lessons(){
-        return $this->hasMany(Lesson::class);
     }
 }

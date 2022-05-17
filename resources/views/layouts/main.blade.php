@@ -889,6 +889,24 @@
                 }    
             });
         });
+        $("#matiere_id").on('change', function(){
+            var matiere = $(this).val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type:'get',
+                url:'/matiere/'+matiere+'/lessons',
+                data:'_token = <?php echo csrf_token() ?>',
+                success:function(data) {
+                    $("#lesson_id").empty();
+                    $("#lesson_id").append('<option value="" disabled selected>إختر درس</option>')
+                    $.each(data, function(index, value){
+                        $("#lesson_id").append('<option value="'+value.id+'">'+value.label+'</option>')
+                    });
+                }    
+            });
+        });
     </script>
 
 </body>

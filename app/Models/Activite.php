@@ -13,13 +13,13 @@ class Activite extends Model
         "type",
         "type_prevision",
         "nbr_prevision",
-        "matiere_id"
+        "lesson_id"
     ];
 
     
 
-    public function matiere(){
-        return $this->belongsTo(Matiere::class);
+    public function lesson(){
+        return $this->belongsTo(Lesson::class);
     }
     public function questions(){
         return $this->hasMany(Question::class);

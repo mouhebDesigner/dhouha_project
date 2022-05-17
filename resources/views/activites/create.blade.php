@@ -35,6 +35,15 @@
                             <span class="help-block">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="form-group @error('lesson_id') has-error @enderror">
+                        <label for="lesson_id">اختر الدرس </label>
+                        <select name="lesson_id" class="form-control" id="lesson_id">
+                            <option value="" disabled selected>إختر الدرس</option>
+                        </select>
+                        @error('lesson_id')
+                            <span class="help-block">{{ $message }}</span>
+                        @enderror
+                    </div>
                     <div class="form-group @error('type') has-error @enderror">
                         <label for="type"> نوع الإختبار </label>
                         <select name="type" class="form-control" id="type">

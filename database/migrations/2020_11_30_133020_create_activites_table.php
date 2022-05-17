@@ -18,7 +18,7 @@ class CreateActivitesTable extends Migration
             $table->enum('type',['one', 'fill_blank']);
             $table->enum('type_prevision',['image', 'text']);
             $table->integer('nbr_prevision');
-            $table->foreignId('matiere_id')->constrained('matieres')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();  
         });
     }

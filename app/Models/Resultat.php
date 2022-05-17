@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Resultat extends Model
 {
     use HasFactory;
+
+    public function activite(){
+        return $this->belongsTo(Activite::class);
+    }
 }

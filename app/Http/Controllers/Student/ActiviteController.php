@@ -47,7 +47,7 @@ class ActiviteController extends Controller
         if(Auth::user()->isStudent()){
 
             $note = Activite::find($id)->resultats()->where('user_id', Auth::id())->first()->note;
-            $matiere = Activite::find($id)->matiere->label;
+            $matiere = Activite::find($id)->lesson->matiere->label;
             $bareme = Activite::find($id)->resultats()->where('user_id', Auth::id())->first()->bareme;
         } else {
             $note = Activite::find($id)->resultats()->where('user_id', Auth::user()->child->id)->first()->note;

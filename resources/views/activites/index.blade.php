@@ -30,6 +30,7 @@
                                         <th>نوع الإقتراحات</th>
                                         <th>  المرحلة  </th>
                                         <th>  المادة  </th>
+                                        <th>  الدرس  </th>
                                         <th>  عدد الأسئلة </th>
                                         @if(Auth::user()->grade == 'admin')
                                         <th>  قائمة الإجتيازات </th>
@@ -54,8 +55,9 @@
                                             نص
                                             @endif
                                         </td>
-                                        <td>{{ $activite->matiere->niveau->label }}</td>
-                                        <td>{{ $activite->matiere->label }}</td>
+                                        <td>{{ $activite->lesson->matiere->niveau->label }}</td>
+                                        <td>{{ $activite->lesson->matiere->label }}</td>
+                                        <td>{{ $activite->lesson->label }}</td>
                                         <td>{{ $activite->questions()->count() }}</td>
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">

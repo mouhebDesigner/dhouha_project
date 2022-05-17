@@ -16,7 +16,7 @@
                     @csrf 
                     <div class="form-group @error('label') has-error @enderror">
                         <label class="pull-right" for="simpleFormEmail">إسم المادة</label>
-                        <input type="text" name="label" class="form-control" id="simpleFormEmail" placeholder="إدخال إسم المرحلة">
+                        <input type="text" name="label" class="form-control" id="simpleFormEmail" placeholder="إدخال إسم المادة">
                         @error('label')
                             <span class="help-block">{{ $message }}</span>
                         @enderror
