@@ -62,7 +62,7 @@ table{
     padding: 5px 5px;
 }
 .label_file::before{
-    content: "حمل صورة";
+    content: "حمل الملف";
     position: absolute;
     width: 15%;
     height: 80%;

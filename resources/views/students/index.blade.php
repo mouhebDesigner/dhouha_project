@@ -38,6 +38,9 @@
                                             colspan="1" aria-label=" Department : activate to sort column ascending"
                                             style="width: 180px;">   هاتف الأب </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                            colspan="1" aria-label=" Department : activate to sort column ascending"
+                                            style="width: 180px;">   إسم الأب </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label=" Mobile : activate to sort column ascending"
                                             style="width: 165px;">  المرحلة التعليمية </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
@@ -55,6 +58,7 @@
                                         <td>{{ $student->nom }} {{ $student->prenom }}</td>
                                         <td class="left">{{ $student->email }}</td>
                                         <td class="left">{{ $student->numtel }}</td>
+                                        <td class="left">{{ $student->parent_name }}</td>
                                         <td><a href="tel:444543564">
                                                 {{ $student->niveau->label }} </a></td>
                                         <td class="left">{{ $student->created_at->format('Y-m-d') }}</td>

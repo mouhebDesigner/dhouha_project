@@ -50,7 +50,7 @@
                                         <td>
                                             <div class="d-flex justify-content-around align-items-center">
                                                 <div>
-                                                    <a href="{{ route('admin.histoires.show', ['histoire' => $histoire]) }}" class="tblEditBtn">
+                                                    <a href="{{ asset("images/".$histoire->file) }}" target="_blank" class="tblEditBtn">
                                                         عرض القصة
                                                     </a>
                                                 </div>

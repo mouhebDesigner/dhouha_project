@@ -16,6 +16,7 @@ class CreateHistoiresTable extends Migration
         Schema::create('histoires', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
+            $table->string('file');
             $table->timestamps();
         });
     }

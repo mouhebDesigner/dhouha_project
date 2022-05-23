@@ -23,19 +23,15 @@
                         @enderror
                     </div>
                     
-                    <div class="form-group @error('titre') has-error @enderror">
+                    <div class="form-group @error('file') has-error @enderror">
                         <label for="image" class="label_file" >
                             <span id="imageName"></span>
                         </label>
                         
-                        <input type="file" name="image[]" class="form-control" onchange="javascript:updateImage()"  id="description" placeholder="محتوى الإحتمال ">
-                    </div>
-                    <div class="form-group @error('vocal') has-error @enderror">
-                        <label for="vocal" class="label_file" >
-                            <span id="imageName"></span>
-                        </label>
-                        
-                        <input type="file" name="vocal[]" class="form-control" onchange="javascript:updateImage()"  id="description" placeholder="محتوى الإحتمال ">
+                        <input type="file" name="file" class="form-control" onchange="javascript:updateImage()"  id="image">
+                        @error('file')
+                            <span class="help-block">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary pull-right">إضافة</button>

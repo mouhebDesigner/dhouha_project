@@ -66,6 +66,12 @@
             font: 10px arial, san serif;
             text-align: left;
         }
+        .bg-student{
+            background: url("{{asset('assets/background.gif')}}");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+        } 
 
     </style>
     <style id="apexcharts-css">
@@ -772,7 +778,7 @@
         <div class="page-container">
             @include('includes.sidebar')
             <div class="page-content-wrapper">
-                <div class="page-content" style="min-height:907px">
+                <div class="page-content @if(Auth::user()->isStudent() && Request::is('home')) bg-student @endif" style="min-height:907px; ">
                     @yield('content')
                 </div>      
             </div>  
@@ -896,7 +902,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type:'get',
-                url:'/matiere/'+matiere+'/lessons',
+                url:'/matiere/'+matiere+'/lessonsJson',
                 data:'_token = <?php echo csrf_token() ?>',
                 success:function(data) {
                     $("#lesson_id").empty();

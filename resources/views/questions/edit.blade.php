@@ -12,7 +12,7 @@
 
             </div>
             <div class="card-body " id="bar-parent">
-                <form action="{{ url('questions/'.$question->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.questions.update', ['question' => $question]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group @error('question') has-error @enderror">

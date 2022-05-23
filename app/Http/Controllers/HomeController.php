@@ -27,7 +27,7 @@ class HomeController extends Controller
 
             return view('home');
         } else {
-            return redirect('matieres');
+            return view('home');
 
         }
     }

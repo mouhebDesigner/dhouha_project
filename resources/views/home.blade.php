@@ -3,6 +3,7 @@
 @section('content')
 @include('includes.page-header', ['title' => 'الصفحة الرئيسية'])
 <div class="state-overview">
+    @if(Auth::user()->isAdmin())
     <div class="row">
         <div class="col-xl-3 col-md-6 col-12">
             <div class="info-box bg-b-white d-flex justify-content-between">
@@ -44,6 +45,9 @@
             <!-- /.info-box -->
         </div>
     </div>
+    @else 
+
+    @endif
 </div>
 
 @endsection

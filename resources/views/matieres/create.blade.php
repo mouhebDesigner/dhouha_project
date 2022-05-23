@@ -1,15 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-@include('includes.page-header', ['title' => 'إضافة مرحلة تعليمية'])
+@include('includes.page-header', ['title' => 'إضافة  مادة'])
 
 <div class="row">
     <div class="col-md-12 col-sm-12">
         <div class="card card-box">
             <div class="card-head">
-                <header> إضافة مرحلة تعليمية</header>
-               
-                
+                <header> إضافة مادة </header>
             </div>
             <div class="card-body " id="bar-parent">
                 <form action="{{ route('admin.matieres.store') }}" method="post">

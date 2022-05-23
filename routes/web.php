@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('activites', ActiviteController::class);
         Route::get('questions/{question_id}/previsions', [PrevisionController::class, 'index']);
         Route::get('questions/{id}/edit', [QuestionController::class, 'edit']);
-        Route::put('questions/{id}', [QuestionController::class, 'update'])->name('questions.update');
+        Route::put('questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
         Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
         Route::get('activites/{id}/questions', [QuestionController::class, 'index']);
         Route::get('activites/{id}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
@@ -63,7 +63,7 @@ Route::get('/testajax/{niveau}', function($niveau){
 Route::get('archives', function(){
     return view('student.archives.index');
 })->name('archives.index')->middleware('auth');
-Route::get('/matiere/{matiere}/lessons', function($matiere){
+Route::get('/matiere/{matiere}/lessonsJson', function($matiere){
     $lessons = App\Models\Lesson::where('matiere_id', $matiere)->get();
     return response()->json($lessons);
 });

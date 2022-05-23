@@ -23,15 +23,7 @@
                     <div class="row">
                         @foreach($activites as $key => $activite)
 
-                        @if(App\Models\Resultat::where('activite_id', $activite->id)->where('user_id', Auth::id())->count() > 0)
-                            <a href="{{ url('activite/'.$activite->id.'/result') }}" title="عرض الإختبارات" class="matiere_block"> 
-                                <i class="fa-solid fa-check" style="    position: relative;
-                                        left: -114px;
-                                        bottom: 20px;
-                                        transform: scale(1.5);"></i>
-                        @else 
                         <a href="{{ url('examens/'.$activite->id) }}" title="عرض الإختبارات" class="matiere_block"> 
-                        @endif
                                 <img src="{{ asset('assets/img/examen.png') }}" width="50" height="50" alt="">
                                 <span>الإختبار {{ $key+1 }}</span>
                             </a>

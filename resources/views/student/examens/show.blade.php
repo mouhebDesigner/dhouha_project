@@ -9,12 +9,12 @@
                 <div class="d-flex justify-content-between align-items-center">
 
                     <header> 
-                        إختبارات مادة
+                        إختبارات درس {{ App\Models\Activite::find($activite_id)->lesson->label }}
                     </header>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ url('activite/'.$activite_id) }}" method="post" style="background: url({{ asset('assets/img/examen.jpg') }}); background-size: cover;">
+                <form action="{{ url('activite/'.$activite_id) }}" method="post" style="background: url({{ asset('assets/bg-activite.jpg') }}); background-size: cover;">
                     @csrf
                     @foreach($questions as $question)
                         <div class="row mt-5" >

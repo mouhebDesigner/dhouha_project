@@ -47,9 +47,8 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request, $activite_id)
     {
-
         $question = new Question();
-        
+        // يعّكر ماء الجير.
         $question->activite_id  = $activite_id;
         $question->question = $request->question;
         if($request->hasFile('image')){
@@ -63,14 +62,13 @@ class QuestionController extends Controller
         {
             $tab = array();
             $count = count($request->description);
-            for($i = 1; $i < $count; $i++){
+            for($i = 1; $i <= $count; $i++){
                 if($request->reponse == $i){
                     array_push($tab, 1);
                 }
                 array_push($tab, 0);
             }
         }
-        
 
         foreach($request->description as $key => $description){
             $prevision = new Prevision;
@@ -133,22 +131,12 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
 
-        if($question->activite->type_prevision == "text"){
-            $request->validate([
-                'question' => 'required',
-                'contenue' => 'required',
-                'reponse'  => 'required'
-            ], [
-                'contenue.required' => 'قم بإختبار الإجابة الصحيح',
-            ]);
-        } else {
-            $request->validate([
-                'question' => 'required',
-                'reponse'  => 'required'
-            ]);
-        }
-
+     
         $question->question = $request->question;
+        if($request->hasFile('image')){
+
+            $question->image = $request->image->store('images');
+        }
         $question->save();
         
         if($question->activite->type == "one" && !empty($request->contenue))
@@ -188,7 +176,7 @@ class QuestionController extends Controller
             }
         }   
 
-        return redirect('activites/'.$question->activite->id.'/questions')->with('updated', 'تم تعديل السؤال ');
+        return redirect('admin/activites/'.$question->activite->id.'/questions')->with('updated', 'تم تعديل السؤال ');
     }
 
     /**

@@ -58,19 +58,13 @@ class HistoireController extends Controller
 
         $histoire->titre = $request->titre;
         
-        $histoire->save();
-
-        if($request->hasFile('image')){
-            foreach($request->image as $key => $image){
-                $page = new Page();
-                $page->image = $image->store('images');
-                $page->vocal = $request->vocal[$key]->store('images');
-                $page->histoire_id = $histoire->id;
-                $page->save();
-            }
+        
+        if($request->hasFile('file')){
+            $histoire->file = $request->file->store('images');
         }
-
-        return redirect('histoires')->with('created', 'لقد تمت إضافة القصة بنجاح');
+        
+        $histoire->save();
+        return redirect('admin/histoires')->with('created', 'لقد تمت إضافة القصة بنجاح');
     }
 
     
@@ -101,8 +95,12 @@ class HistoireController extends Controller
     public function update(histoireRequest $request, histoire $histoire)
     {
         $histoire->update($request->all());
+        if($request->hasFile('file')){
+            $histoire->file = $request->file->store('images');
+        }
+        $histoire->save();
 
-        return redirect()->route('histoires.index')->with('updated', 'لقد تم تعديل المرحلة بنجاح');
+        return redirect()->route('admin.histoires.index')->with('updated', 'لقد تم تعديل المرحلة بنجاح');
     }
 
     /**
