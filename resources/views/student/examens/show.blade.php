@@ -48,7 +48,18 @@
                                         </div>  
                                     @endforeach
                                 </div>
-                            @endif 
+                            @else 
+                                <div class="col-md-12 d-flex flex-column align-items-center">
+                                    @foreach($question->previsions as $key => $reponse)
+                                        <div class="reponse">
+                                            <input type="radio" class="reponse_input" value="{{ $reponse->id }}" id="reponse{{ $reponse->id }}" name="reponse{{ $question->id }}">
+                                            <label class="reponse_label" for="reponse{{ $reponse->id }}">
+                                                {{ $reponse->description }} 
+                                            </label>
+                                        </div>  
+                                    @endforeach
+                                </div>
+                            @endif
 
                         </div>
                     @endforeach
