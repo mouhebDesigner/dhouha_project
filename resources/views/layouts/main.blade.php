@@ -811,6 +811,7 @@
 	<!-- summernote -->
 	<script src="{{ asset('assets/plugins/summernote/summernote.js') }}"></script>
 	<script src="{{ asset('assets/js/pages/summernote/summernote-data.js') }}"></script>
+    @yield('script')
     <script>
         $(document).ready(function(){
           $(".delete-confirm").on('click', function(e){

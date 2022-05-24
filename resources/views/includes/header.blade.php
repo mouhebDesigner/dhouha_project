@@ -3,7 +3,7 @@
         <!-- logo start -->
         <div class="page-logo">
             <a href="index.html">
-                <span class="logo-default">Smart</span> </a>
+                <span class="logo-default">نحو التميز</span> </a>
         </div>
         <!-- logo end -->
         <ul class="nav navbar-nav navbar-right in">

@@ -146,3 +146,17 @@ table{
 .reponse_input:checked + .reponse_label_img img{
     border: 5px solid #16537fe7;
 }
+.button_quiz{
+        width: 150px;
+        margin: auto;
+        float: left;
+        background: #3587c4;
+        color: white;
+}
+.button_quiz:disabled,
+.button_quiz[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: no-drop
+}

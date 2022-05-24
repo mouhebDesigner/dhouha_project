@@ -53,8 +53,8 @@
                         </div>
                     @endforeach
                     <div class="row mt-5">
-                        <div class="col-md-8 offset-md-2">
-                            <input type="submit" class="button_quiz" value="بعث">
+                        <div class="col-md-6">
+                            <input type="submit" disabled class="button_quiz" style="" value="بعث">
                         </div>
                     </div>
                 </form>
@@ -63,4 +63,15 @@
     </div>
 </div>
 
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $(".reponse_input").on('change', function(e){
+                e.preventDefault();
+                $('.button_quiz').prop('disabled', false) ;
+                return 0
+            }) ;
+        });
+    </script>
 @endsection
