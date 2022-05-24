@@ -125,6 +125,24 @@ table{
     font-size: 17px;
     cursor: pointer;
 }
+.reponse_input + .reponse_label_img{
+    margin-top: 10px;
+    line-height: 60px;
+    padding: 0px 21px;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+.reponse_input + .reponse_label_img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
 .reponse_input:checked + .reponse_label{
     background-color: #31678d7d;
+}
+.reponse_input:checked + .reponse_label_img img{
+    border: 5px solid #16537fe7;
 }

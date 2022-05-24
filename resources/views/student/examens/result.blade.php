@@ -18,6 +18,12 @@
     font-weight: bold;
     font-size: 10rem !important;">
                     {{ $bareme }} / {{ $note }}
+
+                    @if($note > ($bareme/2))
+                        <img src="{{ asset('assets/success.gif') }}" alt="">
+                    @else 
+                        <img src="{{ asset('assets/failed.gif') }}" alt="">
+                    @endif
                 </h1>
             </div>
         </div>

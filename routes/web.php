@@ -60,6 +60,8 @@ Route::get('/testajax/{niveau}', function($niveau){
     $matieres = App\Models\Matiere::where('niveau_id', $niveau)->get();
     return response()->json($matieres);
 });
+Route::get('histoires', [HistoireController::class, 'index']);
+
 Route::get('archives', function(){
     return view('student.archives.index');
 })->name('archives.index')->middleware('auth');

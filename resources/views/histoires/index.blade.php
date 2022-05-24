@@ -10,9 +10,11 @@
 
                     <header>القصص 
                     </header>
+                    @if(Auth::user()->isAdmin())
                     <a href="{{ route('admin.histoires.create') }}" id="addRow" class="btn btn-primary btn-primary__customized">
                         <i class="fa fa-plus"></i>
                     </a>
+                    @endif
                 </div>
             </div>
             <div class="card-body ">
@@ -54,9 +56,11 @@
                                                         عرض القصة
                                                     </a>
                                                 </div>
+                                                @if(Auth::user()->isAdmin())
                                                 <button type="submit" data-url="{{ url('admin/histoires/'.$histoire->id) }}" class="delete-confirm tblDelBtn" style="border: none">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
+                                                @endif
                                                 
                                             </div>
                                         </td>

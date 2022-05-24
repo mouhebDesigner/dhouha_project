@@ -33,22 +33,23 @@
                             </div>
                         </div>
                         <div class="row mt-5">
-                            @foreach($question->previsions as $key => $reponse)
-                            <div class="col-md-12 d-flex flex-column align-items-center">
-                                <div class="reponse">
+                            @if($question->activite->type_prevision == "image")
+                                <div class="col-md-12 d-flex flex-row justify-content-center">
+                                    @foreach($question->previsions as $key => $reponse)
+                                        <div class="reponse">
+                                            <input type="radio" class="reponse_input" value="{{ $reponse->id }}" id="reponse{{ $reponse->id }}" name="reponse{{ $question->id }}">
+                                            <label class="reponse_label_img" for="reponse{{ $reponse->id }}">
+                                                @if($question->activite->type_prevision == "image")
+                                                    <img src="{{ asset('images/'.$reponse->description) }}" width="50" alt="">
+                                                @else 
+                                                    {{ $reponse->description }}
+                                                @endif 
+                                            </label>
+                                        </div>  
+                                    @endforeach
+                                </div>
+                            @endif 
 
-                                    <input type="radio" class="reponse_input" value="{{ $reponse->id }}" id="reponse{{ $reponse->id }}" name="reponse{{ $question->id }}">
-                                    <label class="reponse_label" for="reponse{{ $reponse->id }}">
-                                        <span>{{$key}}</span>
-                                        @if($question->activite->type_prevision == "image")
-                                            <img src="{{ asset('images/'.$reponse->description) }}" width="50" alt="">
-                                        @else 
-                                            {{ $reponse->description }}
-                                        @endif 
-                                    </label>
-                                </div>  
-                            </div>
-                            @endforeach
                         </div>
                     @endforeach
                     <div class="row mt-5">

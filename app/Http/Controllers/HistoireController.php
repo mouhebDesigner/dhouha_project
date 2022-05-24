@@ -23,9 +23,7 @@ class HistoireController extends Controller
     public function index(Request $request)
     {
 
-        if(str_contains($request->path(), 'admin') && Auth::user()->isStudent()){
-            abort(404);
-        }
+       
         if(session('created')){
             Alert::success('Success Title', session('created'));
         }
