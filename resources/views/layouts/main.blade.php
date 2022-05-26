@@ -72,6 +72,27 @@
             background-repeat: no-repeat;
 
         } 
+        .bg-histoire{
+            background: url("{{asset('assets/img/histoires.jpg')}}");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+        } 
+        .bg-dourous{
+            background: url("{{asset('assets/img/dourous.jpg')}}");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        } 
+        .bg-matiere{
+            background: url("{{asset('assets/img/matieres.jpg')}}");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        } 
+        .bg-activite{
+            background: url("{{asset('assets/img/activites.webp')}}");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        } 
 
     </style>
     <style id="apexcharts-css">
@@ -778,7 +799,23 @@
         <div class="page-container">
             @include('includes.sidebar')
             <div class="page-content-wrapper">
-                <div class="page-content @if(Auth::user()->isStudent() && Request::is('home')) bg-student @endif" style="min-height:907px; ">
+                <div class="page-content 
+                    @if(Auth::user()->isStudent() && Request::is('home')) 
+                        bg-student 
+                    @endif
+                    @if(Auth::user()->isStudent() && Request::is('admin/histoires')) 
+                        bg-histoire
+                    @endif
+                    @if(Auth::user()->isStudent() && Request::is('*/lessons')) 
+                        bg-dourous
+                    @endif
+                    @if(Auth::user()->isStudent() && Request::is('matieres')) 
+                        bg-matiere
+                    @endif
+                    @if(Auth::user()->isStudent() && Request::is('*/activites')) 
+                        bg-activite
+                    @endif
+                    " style="min-height:907px; ">
                     @yield('content')
                 </div>      
             </div>  
