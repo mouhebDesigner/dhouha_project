@@ -22,7 +22,7 @@
             <div class="info-box bg-b-white d-flex justify-content-between">
                 <div class="info-box-content">
                     <span class="info-box-text" style="font-weight: bold;">أولياء الأمر</span>
-                    <span class="info-box-number" style="font-weight: bold;">{{ App\Models\User::where('role', 'parent')->count() }}</span>
+                    <span class="info-box-number" style="font-weight: bold;">{{ App\Models\User::where('role', 'etudiant')->count() }}</span>
                 </div>
                 <div class="info-box-icon__customized">
                     <img src="{{ asset('assets/img/parents.png') }}" alt="">
