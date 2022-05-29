@@ -149,7 +149,6 @@ class QuestionController extends Controller
                 array_push($tab, 0);
             }
        
-
         if(!empty($request->description)){
             foreach($question->previsions as $key => $prevision){
                 $prevision = Prevision::find($prevision->id);
@@ -168,13 +167,28 @@ class QuestionController extends Controller
 
                 if($question->activite->type == "one")
                     $prevision->reponse = $tab[$key];
-                else
-                    $prevision->reponse = $request->input('reponse'.($key+1));
 
                 $prevision->save();  
                 
             }
         }   
+        $previsionIds = [];
+        foreach($question->previsions()->get('id') as $prevision){
+            $previsionIds[] = $prevision->id;
+        }
+        
+        $previsionUpdate = Prevision::find($question->previsions()->where('reponse', '1')->first()->id);
+        $previsionUpdate->reponse = 0;
+        $previsionUpdate->save();
+
+        $previsionUpdate = Prevision::find($previsionIds[$request->reponse-1]);
+        $previsionUpdate->reponse = 1;
+        $previsionUpdate->save();
+
+        
+
+
+
 
         return redirect('admin/activites/'.$question->activite->id.'/questions')->with('updated', 'تم تعديل السؤال ');
     }
