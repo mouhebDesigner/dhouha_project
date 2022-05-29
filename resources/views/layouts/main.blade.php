@@ -90,7 +90,7 @@
         }
 
         .bg-matiere {
-            background: url("{{asset('assets/img/matieres.jpg')}}");
+            background: url("{{asset('assets/img/bg-matiere.jpg')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
@@ -818,7 +818,7 @@
                     @if(Auth::user()->isStudent() && Request::is('*/lessons')) 
                         bg-dourous
                     @endif
-Activite                    @if(Auth::user()->isStudent() && Request::is('matieres')) 
+                    @if(Auth::user()->isStudent() && Request::is('matieres')) 
                         bg-matiere
                     @endif
                     @if(Auth::user()->isStudent() && Request::is('*/activites')) 
