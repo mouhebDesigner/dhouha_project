@@ -139,30 +139,30 @@ class QuestionController extends Controller
         }
         $question->save();
         
-        if($question->activite->type == "one" && !empty($request->description))
-        {
+        
             $tab = array();
-            $count = count($request->description);
+            $count = count($question->previsions);
             for($i = 1; $i < $count; $i++){
                 if($request->reponse == $i){
                     array_push($tab, 1);
                 }
                 array_push($tab, 0);
             }
-        }
+       
 
         if(!empty($request->description)){
             foreach($question->previsions as $key => $prevision){
                 $prevision = Prevision::find($prevision->id);
                 $prevision->question_id = $question->id;
                 if($question->activite->type_prevision == "text")
-
-                    $prevision->description = $request->description[$key];
+                    if(isset($request->description[$key]))
+                        $prevision->description = $request->description[$key];
 
                 else {
                 
                     if($request->hasFile('description')){
-                        $prevision->description =  $request->description[$key]->store('images');
+                        if(isset($request->description[$key]))
+                            $prevision->description =  $request->description[$key]->store('images');
                     }
                 }
 
