@@ -32,7 +32,7 @@
                         <div class="form-group @error('description') has-error @enderror">
                             @if($question->activite->type_prevision == 'text')
                                 <label for="description{{ $i+1 }}">  محتوى الإحتمال  {{$i+1}}</label>
-                                <input type="text" name="description" value="{{ $prevision->description }}" class="form-control" id="description{{ $i+1 }}" placeholder="محتوى الإحتمال ">
+                                <input type="text" name="description[]" value="{{ $prevision->description }}" class="form-control" id="description{{ $i+1 }}" placeholder="محتوى الإحتمال ">
                             @else 
                                 <label for="description{{ $i+1 }}">  محتوى الإحتمال  {{$i+1}}</label>
                                 <label for="description{{ $i+1 }}" class="label_file" >
@@ -59,7 +59,7 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary pull-right">إضافة</button>
+                    <button type="submit" class="btn btn-primary pull-right">تعديل</button>
                 </form>
             </div>
         </div>
