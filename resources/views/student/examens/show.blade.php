@@ -27,7 +27,7 @@
                                         line-height: 50px;
                                         font-weight: bold;">{{ $question->question }} ؟</div>
                                 @if($question->image)
-                                    <img src="{{ asset('images/'.$question->image) }}" width="200" alt="">
+                                    <img src="{{ asset('images/'.$question->image)g }}" width="200" alt="">
                                 @endif
                                 <input type="hidden" value="{{ $question->id }}" name="question_ids[]">
                             </div>
