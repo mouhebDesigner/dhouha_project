@@ -11,7 +11,8 @@
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
     <!-- icons -->
-    <link href="{{ asset('assets/fonts/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/fonts/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet"
+        type="text/css">
     <link href="{{ asset('assets/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/fonts/font-awesome/v6/css/all.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/fonts/material-design-icons/material-icon.css') }}" rel="stylesheet" type="text/css">
@@ -25,7 +26,8 @@
     <!-- inbox style -->
     <link href="{{ asset('assets/css/pages/inbox.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Theme Styles -->
-    <link href="{{ asset('assets/css/theme/rtl/theme_style.css') }}" rel="stylesheet" id="rt_style_components" type="text/css">
+    <link href="{{ asset('assets/css/theme/rtl/theme_style.css') }}" rel="stylesheet" id="rt_style_components"
+        type="text/css">
     <link href="{{ asset('assets/css/plugins.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/theme/rtl/style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css">
@@ -41,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&family=Tajawal:wght@700&display=swap"
         rel="stylesheet">
-    
+
     <style type="text/css">
         .jqstooltip {
             position: absolute;
@@ -66,33 +68,38 @@
             font: 10px arial, san serif;
             text-align: left;
         }
-        .bg-student{
+
+        .bg-student {
             background: url("{{asset('assets/background.gif')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
 
-        } 
-        .bg-histoire{
+        }
+
+        .bg-histoire {
             background: url("{{asset('assets/img/histoires.jpg')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
 
-        } 
-        .bg-dourous{
-            background: url("{{asset('assets/img/dourous.jpg')}}");
+        }
+
+        .bg-dourous {
+            background: url("{{asset('assets/img/dourousActivite.webp')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
-        } 
-        .bg-matiere{
+        }
+
+        .bg-matiere {
             background: url("{{asset('assets/img/matieres.jpg')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
-        } 
-        .bg-activite{
-            background: url("{{asset('assets/img/activites.webp')}}");
+        }
+
+        .bg-activite {
+            background: url("{{asset('assets/img/dourousActivite.webp')}}");
             background-size: 100% 100%;
             background-repeat: no-repeat;
-        } 
+        }
 
     </style>
     <style id="apexcharts-css">
@@ -793,7 +800,9 @@
     </style>
     <script src="https://kit.fontawesome.com/5364c00e9b.js" crossorigin="anonymous"></script>
 </head>
-<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md sidemenu-container-reversed header-white white-sidebar-color logo-indigo">
+
+<body
+    class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md sidemenu-container-reversed header-white white-sidebar-color logo-indigo">
     <div class="page-wrapper">
         @include('includes.header')
         <div class="page-container">
@@ -809,7 +818,7 @@
                     @if(Auth::user()->isStudent() && Request::is('*/lessons')) 
                         bg-dourous
                     @endif
-                    @if(Auth::user()->isStudent() && Request::is('matieres')) 
+Activite                    @if(Auth::user()->isStudent() && Request::is('matieres')) 
                         bg-matiere
                     @endif
                     @if(Auth::user()->isStudent() && Request::is('*/activites')) 
@@ -817,8 +826,8 @@
                     @endif
                     " style="min-height:907px; ">
                     @yield('content')
-                </div>      
-            </div>  
+                </div>
+            </div>
         </div>
 
     </div>
@@ -826,131 +835,140 @@
     <!-- Main Javascript file -->
     <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
     <!-- start js include path -->
-	<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/popper/popper.js') }}"></script>
-	<script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-	<script src="{{ asset('assets/plugins/feather/feather.min.js') }}"></script>
-	<!-- bootstrap -->
-	<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.js') }}"></script>
-	<script src="{{ asset('assets/js/pages/sparkline/sparkline-data.js') }}"></script>
-	<!-- Common js-->
-	<script src="{{ asset('assets/js/app.js') }}"></script>
-	<script src="{{ asset('assets/js/layout.js') }}"></script>
-	<script src="{{ asset('assets/js/theme-color.js') }}"></script>
-	<!-- material -->
-	<script src="{{ asset('assets/plugins/material/material.min.js') }}"></script>
-	<!--apex chart-->
-	<script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
-	<script src="{{ asset('assets/js/pages/chart/apex/home-data.js') }}"></script>
-	<!-- summernote -->
-	<script src="{{ asset('assets/plugins/summernote/summernote.js') }}"></script>
-	<script src="{{ asset('assets/js/pages/summernote/summernote-data.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('assets/plugins/feather/feather.min.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/sparkline/sparkline-data.js') }}"></script>
+    <!-- Common js-->
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/layout.js') }}"></script>
+    <script src="{{ asset('assets/js/theme-color.js') }}"></script>
+    <!-- material -->
+    <script src="{{ asset('assets/plugins/material/material.min.js') }}"></script>
+    <!--apex chart-->
+    <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/chart/apex/home-data.js') }}"></script>
+    <!-- summernote -->
+    <script src="{{ asset('assets/plugins/summernote/summernote.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/summernote/summernote-data.js') }}"></script>
     @yield('script')
+    @if(Auth::user()->isStudent() && Request::is('home'))
+    <iframe src="{{ asset('assets/son.mp3') }}" type="audio/mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+    <audio autoplay style="display: none">
+        <source src="{{ asset('assets/son.mp3') }}" type="audio/mp3" >
+    </audio>
+    @endif
     <script>
-        $(document).ready(function(){
-          $(".delete-confirm").on('click', function(e){
-          e.preventDefault();
-          var url = $(this).data('url');
-          console.log($('meta[name=csrf-token]').attr('content'));
-          swal({
-                  title: "",
-                  text: "هل أنت متأكد أنك تريد الحذف ؟",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-              })
-              .then((willDelete) => {
-                  if (willDelete) {
-                      var data = {
-                          "_token" : $('meta[name="csrf-token"]').attr('content'),
-                      };
-                      $.ajax({
-                          type: "DELETE",
-                          url: url,
-                          data: data,
-                          success: function(response){
-                              console.log(response);
-                              swal(response.deleted, {
-                                  icon: "success",
-                              }).then((result) => {
-                                  location.reload();
-                              });
-                          }
-                      })
-                  } else {
-                      swal("تم إلغاء الإجراء ");
-                  }
-              });
-          });
-          $(".edit-confirm").on('click', function(e){
-              e.preventDefault();
-              console.log($(this).data('model'));
-              var id = $(this).closest('tr').find('.product_id').val();
-              var href = $(this).attr('href');
-              swal({
-                  title: "",
-                  text: "هل أنت متأكد أنك تريد العديل ؟",
-                  icon: "primary",
-                  buttons: true,
-                  dangerMode: false,
-              })
-              .then((willEdit) => {
-                  if (willEdit) {
-                      window.location.href = href;
-                  } else {
-                      swal("تم إلغاء الإجراء ");
-                  }
-              });
-          });
-      });
-        updateImage = function(index) {
-            var input = document.getElementById('description'+index);
-            var output = document.getElementById('imageName'+index);
+        $(document).ready(function () {
+            $(".delete-confirm").on('click', function (e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+                console.log($('meta[name=csrf-token]').attr('content'));
+                swal({
+                        title: "",
+                        text: "هل أنت متأكد أنك تريد الحذف ؟",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var data = {
+                                "_token": $('meta[name="csrf-token"]').attr('content'),
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: url,
+                                data: data,
+                                success: function (response) {
+                                    console.log(response);
+                                    swal(response.deleted, {
+                                        icon: "success",
+                                    }).then((result) => {
+                                        location.reload();
+                                    });
+                                }
+                            })
+                        } else {
+                            swal("تم إلغاء الإجراء ");
+                        }
+                    });
+            });
+            $(".edit-confirm").on('click', function (e) {
+                e.preventDefault();
+                console.log($(this).data('model'));
+                var id = $(this).closest('tr').find('.product_id').val();
+                var href = $(this).attr('href');
+                swal({
+                        title: "",
+                        text: "هل أنت متأكد أنك تريد العديل ؟",
+                        icon: "primary",
+                        buttons: true,
+                        dangerMode: false,
+                    })
+                    .then((willEdit) => {
+                        if (willEdit) {
+                            window.location.href = href;
+                        } else {
+                            swal("تم إلغاء الإجراء ");
+                        }
+                    });
+            });
+        });
+        updateImage = function (index) {
+            var input = document.getElementById('description' + index);
+            var output = document.getElementById('imageName' + index);
             output.innerText = "";
             for (var i = 0; i < input.files.length; ++i) {
                 output.innerHTML += input.files.item(i).name + '/';
             }
         }
-        $("#niveau_id").on('change', function(){
+        $("#niveau_id").on('change', function () {
             console.log('kleahdjkaed');
             var niveau = $(this).val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                type:'get',
-                url:'/testajax/'+niveau,
-                data:'_token = <?php echo csrf_token() ?>',
-                success:function(data) {
+                type: 'get',
+                url: '/testajax/' + niveau,
+                data: '_token = <?php echo csrf_token() ?>',
+                success: function (data) {
                     $("#matiere_id").empty();
                     $("#matiere_id").append('<option value="" disabled selected>إختر مادة</option>')
-                    $.each(data, function(index, value){
-                        $("#matiere_id").append('<option value="'+value.id+'">'+value.label+'</option>')
+                    $.each(data, function (index, value) {
+                        $("#matiere_id").append('<option value="' + value.id + '">' + value
+                            .label + '</option>')
                     });
-                }    
+                }
             });
         });
-        $("#matiere_id").on('change', function(){
+        $("#matiere_id").on('change', function () {
             var matiere = $(this).val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                type:'get',
-                url:'/matiere/'+matiere+'/lessonsJson',
-                data:'_token = <?php echo csrf_token() ?>',
-                success:function(data) {
+                type: 'get',
+                url: '/matiere/' + matiere + '/lessonsJson',
+                data: '_token = <?php echo csrf_token() ?>',
+                success: function (data) {
                     $("#lesson_id").empty();
                     $("#lesson_id").append('<option value="" disabled selected>إختر درس</option>')
-                    $.each(data, function(index, value){
-                        $("#lesson_id").append('<option value="'+value.id+'">'+value.label+'</option>')
+                    $.each(data, function (index, value) {
+                        $("#lesson_id").append('<option value="' + value.id + '">' + value
+                            .label + '</option>')
                     });
-                }    
+                }
             });
         });
+
     </script>
 
 </body>

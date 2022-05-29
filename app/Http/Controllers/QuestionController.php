@@ -139,10 +139,10 @@ class QuestionController extends Controller
         }
         $question->save();
         
-        if($question->activite->type == "one" && !empty($request->contenue))
+        if($question->activite->type == "one" && !empty($request->description))
         {
             $tab = array();
-            $count = count($request->contenue);
+            $count = count($request->description);
             for($i = 1; $i < $count; $i++){
                 if($request->reponse == $i){
                     array_push($tab, 1);
@@ -151,7 +151,7 @@ class QuestionController extends Controller
             }
         }
 
-        if(!empty($request->contenue)){
+        if(!empty($request->description)){
             foreach($question->previsions as $key => $prevision){
                 $prevision = Prevision::find($prevision->id);
                 $prevision->question_id = $question->id;

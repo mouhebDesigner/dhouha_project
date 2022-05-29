@@ -48,10 +48,17 @@
                                 </thead>
                                 <tbody>
                                     @foreach(Auth::user()->resultats()->get() as $key => $result)
+                                    @php  $activiteids = []; @endphp
+                                    @foreach(App\Models\Lesson::find($result->activite->lesson->id)->activites()->get() as $activite)
+                                        @php  $activiteids[] = $activite->id; @endphp
+                                    @endforeach
+
+                                    
+
                                     <tr class="gradeX even">
                                         <td class="left sorting_1">{{ $result->id }}</td>
                                         <td>
-                                            الإختبار {{ $key+1 }}
+                                            الإختبار {{ array_search($result->activite->id,$activiteids,true)+1 }}
                                         </td>
                                         <td>{{ $result->activite->lesson->matiere->label }}</td>
                                         <td>{{ $result->activite->lesson->label }}</td>

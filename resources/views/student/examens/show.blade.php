@@ -22,7 +22,7 @@
                                 <div class="question" style="background: #006378;
                                         color: white;
                                         width: 100%;
-                                        height: 50px;
+                                        height: 80px;
                                         text-align: center;
                                         line-height: 50px;
                                         font-weight: bold;">{{ $question->question }} ؟</div>
